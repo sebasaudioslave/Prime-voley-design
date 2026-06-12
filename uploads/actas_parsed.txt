@@ -1,0 +1,180 @@
+[0] P  <b> CLUB DEPORTIVO PRIME
+[1] P  <b> Zipaquirá, Cundinamarca · Colombia
+[2] P  <b> ACTA DE CONSTITUCIÓN No. 001
+[3] P  <b> Asamblea de Constitución, Aprobación de Estatutos y Elección de Órganos
+[4] P  <b> I. APERTURA DE LA REUNIÓN
+[5] P  <b> En el municipio de Zipaquirá, departamento de Cundinamarca, República de Colombia, siendo las ___:___ horas del día ___ del mes de __________________ de dos mil veintiséis (2026), se reunieron en ____________________________________________ (dirección), los deportistas fundadores que se relacionan a continuación, con el propósito de constituir el CLUB DEPORTIVO PRIME, aprobar sus Estatutos Sociales y elegir sus órganos, conforme a la Ley 181 de 1995, el Decreto Ley 1228 de 1995 y la Resolución 000410 del 13 de mayo de 2026 del Ministerio del Deporte.
+[6] P  <b> Los asistentes acordaron elegir como Presidente ad-hoc a _________________________________ y como Secretario(a) ad-hoc a _________________________________, para moderar y dirigir la presente asamblea.
+[7] P  <b> II. LISTA DE ASISTENTES
+[8] TABLE 16x4
+    R0: [#] | [Nombre completo] | [C.C.] | [Firma]
+    R1: [1] | [_________________________________] | [___________________] | []
+    R2: [2] | [_________________________________] | [___________________] | []
+    R3: [3] | [_________________________________] | [___________________] | []
+    R4: [4] | [_________________________________] | [___________________] | []
+    R5: [5] | [_________________________________] | [___________________] | []
+    R6: [6] | [_________________________________] | [___________________] | []
+    R7: [7] | [_________________________________] | [___________________] | []
+    R8: [8] | [_________________________________] | [___________________] | []
+    R9: [9] | [_________________________________] | [___________________] | []
+    R10: [10] | [_________________________________] | [___________________] | []
+    R11: [11] | [_________________________________] | [___________________] | []
+    R12: [12] | [_________________________________] | [___________________] | []
+    R13: [13] | [_________________________________] | [___________________] | []
+    R14: [14] | [_________________________________] | [___________________] | []
+    R15: [15] | [_________________________________] | [___________________] | []
+[9] P  <b> Total de asistentes: ____ personas. Quórum verificado: se acredita la presencia del número mínimo de doce (12) deportistas exigido para deportes de conjunto conforme a la normativa de la Federación Colombiana de Voleibol y la Resolución 000410 de 2026.
+[10] P  <b> III. ORDEN DEL DÍA
+[11] P   1. Llamado a lista y verificación del quórum.
+[12] P   2. Aprobación del orden del día.
+[13] P   3. Constitución del Club Deportivo Prime: nombre, objeto y domicilio.
+[14] P   4. Lectura y aprobación de los Estatutos Sociales.
+[15] P   5. Elección del Órgano de Administración.
+[16] P   6. Elección de dos (2) miembros de la Comisión Disciplinaria.
+[17] P   7. Proposiciones y varios.
+[18] P  <b> El orden del día fue sometido a consideración y aprobado por ____ votos a favor, ____ en contra y ____ abstenciones.
+[19] P  <b> IV. DESARROLLO DEL ORDEN DEL DÍA
+[20] P  <b> PUNTO 1. LLAMADO A LISTA Y VERIFICACIÓN DEL QUÓRUM
+[21] P  <b> El Secretario(a) ad-hoc procedió a llamar a lista. El Presidente ad-hoc comprobó la presencia de ____ de los ____ afiliados fundadores del Club, verificando la existencia de quórum suficiente para deliberar y decidir. Se continuó con el orden del día.
+[22] P  <b> PUNTO 2. APROBACIÓN DEL ORDEN DEL DÍA
+[23] P  <b> Se sometió a consideración el orden del día propuesto. Fue aprobado por unanimidad.
+[24] P  <b> PUNTO 3. CONSTITUCIÓN DEL CLUB
+[25] P  <b> El Presidente ad-hoc expuso el propósito de la convocatoria: constituir el primer club deportivo competitivo de voleibol de Zipaquirá, con proyección regional y nacional. Se acordó por unanimidad la siguiente identidad del Club:
+[26] TABLE 4x2
+    R0: [Nombre oficial] | [CLUB DEPORTIVO PRIME]
+    R1: [Objeto] | [Fomento, protección y desarrollo del voleibol en todas sus modalidades: masculino adulto, femenino adulto, mixto e infantil.]
+    R2: [Domicilio] | [Municipio de Zipaquirá, departamento de Cundinamarca, República de Colombia.]
+    R3: [Colores] | [Negro Carbón, Dorado Real, Púrpura Técnico y Blanco Funcional.]
+[27] P  <b> Votación: A favor: ____ · En contra: ____ · Abstenciones: ____ · APROBADO
+[28] P  <b> PUNTO 4. LECTURA Y APROBACIÓN DE LOS ESTATUTOS SOCIALES
+[29] P  <b> El Presidente ad-hoc presentó el proyecto de Estatutos Sociales del Club Deportivo Prime, compuesto por diez (10) capítulos y treinta y tres (33) artículos, redactados conforme a la Resolución 000410 del 13 de mayo de 2026. Los Estatutos fueron leídos capítulo por capítulo, discutidos y sometidos a votación.
+[30] P  <b> Votación: A favor: ____ · En contra: ____ · Abstenciones: ____ · APROBADO
+[31] P  <b> PUNTO 5. ELECCIÓN DEL ÓRGANO DE ADMINISTRACIÓN
+[32] P  <b> Conforme al artículo Décimo Sexto de los Estatutos aprobados, se procedió a la elección del Órgano de Administración conformado por tres (3) miembros. Se presentaron las siguientes candidaturas:
+[33] P   
+[34] TABLE 4x6
+    R0: [#] | [Nombre completo] | [C.C.] | [Votos a favor] | [Votos en contra] | [Total votos]
+    R1: [1] | [David Sebastián Fonseca Carvajal] | [175.684.517] | [____] | [____] | [____]
+    R2: [2] | [José David Caicedo] | [1.075.678.000] | [____] | [____] | [____]
+    R3: [3] | [Marisol Carvajal Medina] | [35.422.570] | [____] | [____] | [____]
+[35] P  <b> Quedaron elegidos para el Órgano de Administración:
+[36] TABLE 4x3
+    R0: [Nombre] | [C.C.] | [Cargo]
+    R1: [David Sebastián Fonseca Carvajal] | [175.684.517] | [Presidente — Representante Legal]
+    R2: [José David Caicedo] | [1.075.678.000] | [Vicepresidente]
+    R3: [Marisol Carvajal Medina] | [35.422.570] | [Secretaria]
+[37] P  <b> Los elegidos aceptaron los cargos en el mismo acto y manifestaron conocer sus responsabilidades legales y estatutarias.
+[38] P  <b> Votación: A favor: ____ · En contra: ____ · Abstenciones: ____ · APROBADO
+[39] P  <b> PUNTO 6. ELECCIÓN DE LA COMISIÓN DISCIPLINARIA
+[40] P  <b> Conforme al artículo Vigésimo Segundo de los Estatutos, la Asamblea eligió dos (2) miembros de la Comisión Disciplinaria. Los miembros elegidos son personas ajenas al Club, que no pertenecen al Órgano de Administración ni tienen calidad de afiliados deportistas.
+[41] P   
+[42] TABLE 4x6
+    R0: [#] | [Nombre completo] | [C.C.] | [Votos a favor] | [Votos en contra] | [Total votos]
+    R1: [1] | [_________________________________] | [___________________] | [____] | [____] | [____]
+    R2: [2] | [_________________________________] | [___________________] | [____] | [____] | [____]
+    R3: [3] | [_________________________________] | [___________________] | [____] | [____] | [____]
+[43] P  <b> Quedaron elegidos como miembros de la Comisión Disciplinaria:
+[44] TABLE 3x2
+    R0: [Nombre] | [C.C.]
+    R1: [_________________________________] | [___________________]
+    R2: [_________________________________] | [___________________]
+[45] P  <b> Nota: El tercer miembro de la Comisión Disciplinaria será designado por el Presidente mediante Resolución No. 001, conforme al artículo Vigésimo Segundo de los Estatutos.
+[46] P  <b> Votación: A favor: ____ · En contra: ____ · Abstenciones: ____ · APROBADO
+[47] P  <b> PUNTO 7. PROPOSICIONES Y VARIOS
+[48] P  <b> ____________________________________________________________________________
+[49] P  <b> ____________________________________________________________________________
+[50] P  <b> ____________________________________________________________________________
+[51] P  <b> V. CLAUSURA
+[52] P  <b> Agotado el orden del día y no habiendo más proposiciones, el Presidente ad-hoc declaró formalmente constituido el CLUB DEPORTIVO PRIME y levantó la sesión siendo las ___:___ horas del mismo día. La presente Acta es firmada por los fundadores constituyentes, el Presidente ad-hoc y el Secretario(a) ad-hoc.
+[53] P  <b> VI. FIRMAS DE LOS FUNDADORES CONSTITUYENTES
+[54] P  <b> David Sebastián Fonseca Carvajal
+[55] P   Presidente — Representante Legal
+[56] P   C.C. 175.684.517
+[57] P  <b> José David Caicedo
+[58] P   Vicepresidente — Fundador
+[59] P   C.C. 1.075.678.000
+[60] P  <b> Marisol Carvajal Medina
+[61] P   Secretaria — Fundadora
+[62] P   C.C. 35.422.570
+[63] P  <b> _________________________________
+[64] P   Fundador Constituyente
+[65] P   C.C. __________________
+[66] P  <b> _________________________________
+[67] P   Fundador Constituyente
+[68] P   C.C. __________________
+[69] P  <b> _________________________________
+[70] P   Fundador Constituyente
+[71] P   C.C. __________________
+[72] P  <b> _________________________________
+[73] P   Fundador Constituyente
+[74] P   C.C. __________________
+[75] P  <b> _________________________________
+[76] P   Fundador Constituyente
+[77] P   C.C. __________________
+[78] P  <b> _________________________________
+[79] P   Fundador Constituyente
+[80] P   C.C. __________________
+[81] P  <b> _________________________________
+[82] P   Fundador Constituyente
+[83] P   C.C. __________________
+[84] P  <b> _________________________________
+[85] P   Fundador Constituyente
+[86] P   C.C. __________________
+[87] P  <b> _________________________________
+[88] P   Fundador Constituyente
+[89] P   C.C. __________________
+[90] P  <b> VII. PRESIDENTE Y SECRETARIO AD-HOC
+[91] P  <b> _________________________________
+[92] P   Presidente ad-hoc
+[93] P   C.C. __________________
+[94] P  <b> _________________________________
+[95] P   Secretario(a) ad-hoc
+[96] P   C.C. __________________
+[97] P   
+[98] P  <b> CLUB DEPORTIVO PRIME
+[99] P  <b> Zipaquirá, Cundinamarca · Colombia
+[100] P  <b> ACTA No. 002
+[101] P  <b> Reunión del Órgano de Administración — Asignación de Cargos y Elección del Tercer Miembro de la Comisión Disciplinaria
+[102] P  <b> I. APERTURA
+[103] P  <b> En el municipio de Zipaquirá, siendo las ___:___ horas del día ___ del mes de __________________ de 2026, se reunieron los miembros del Órgano de Administración del CLUB DEPORTIVO PRIME elegidos en la Asamblea de Constitución del mismo día, con el fin de confirmar la asignación de cargos y elegir al tercer miembro de la Comisión Disciplinaria.
+[104] TABLE 4x3
+    R0: [Nombre] | [C.C.] | [Firma]
+    R1: [David Sebastián Fonseca Carvajal] | [1.075.684.517] | []
+    R2: [José David Caicedo] | [1.075.678.000] | []
+    R3: [Marisol Carvajal Medina] | [35.422.570] | []
+[105] P  <b> Quórum verificado: presencia de los tres (3) miembros del Órgano de Administración.
+[106] P  <b> II. ORDEN DEL DÍA
+[107] P   1. Aprobación del orden del día.
+[108] P   2. Confirmación de la asignación de cargos del Órgano de Administración.
+[109] P   3. Elección del tercer miembro de la Comisión Disciplinaria.
+[110] P   4. Proposiciones y varios.
+[111] P  <b> El orden del día fue aprobado por unanimidad.
+[112] P  <b> III. DESARROLLO
+[113] P  <b> PUNTO 2. CONFIRMACIÓN DE CARGOS
+[114] P  <b> Conforme al artículo Décimo Sexto de los Estatutos Sociales, los miembros confirmaron la asignación de cargos que operó de pleno derecho desde su elección en la Asamblea de Constitución:
+[115] TABLE 4x3
+    R0: [Nombre] | [C.C.] | [Cargo]
+    R1: [David Sebastián Fonseca Carvajal] | [175.684.517] | [Presidente — Representante Legal]
+    R2: [José David Caicedo] | [1.075.678.000] | [Vicepresidente]
+    R3: [Marisol Carvajal Medina] | [35.422.570] | [Secretaria]
+[116] P  <b> PUNTO 3. ELECCIÓN DEL TERCER MIEMBRO DE LA COMISIÓN DISCIPLINARIA
+[117] P  <b> El Presidente propuso como tercer miembro de la Comisión Disciplinaria a la siguiente persona, ajena al Club y sin calidad de afiliada deportista:
+[118] TABLE 2x2
+    R0: [Nombre] | [C.C.]
+    R1: [_________________________________] | [___________________]
+[119] P  <b> La designación fue aprobada por unanimidad. La Resolución No. 001 del Órgano de Administración formalizará este nombramiento.
+[120] P  <b> PUNTO 4. PROPOSICIONES Y VARIOS
+[121] P  <b> ____________________________________________________________________________
+[122] P  <b> ____________________________________________________________________________
+[123] P  <b> IV. CLAUSURA
+[124] P  <b> Sin más asuntos que tratar, el Presidente levantó la sesión siendo las ___:___ horas del mismo día.
+[125] P  <b> V. FIRMAS
+[126] P  <b> David Sebastián Fonseca Carvajal
+[127] P   Presidente
+[128] P   C.C. 175.684.517
+[129] P  <b> José David Caicedo
+[130] P   Vicepresidente
+[131] P   C.C. 1.075.678.000
+[132] P  <b> Marisol Carvajal Medina
+[133] P   Secretaria
+[134] P   C.C. 35.422.570

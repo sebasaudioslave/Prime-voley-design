@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Brand" name="Estatutos Sociales — Club Deportivo Prime" -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estatutos Sociales — Club Deportivo Prime</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&display=swap');
+
+:root {
+  --ink:        #1A1A20;
+  --ink-mid:    #44444E;
+  --paper:      #FAFAF6;
+  --gold:       #C9A84C;
+  --gold-deep:  #9E8338;
+  --carbon:     #15161C;
+  --purple:     #4C3B9A;
+  --rule-thin:  0.5px solid rgba(201,168,76,0.45);
+  --serif:      'EB Garamond', Georgia, 'Times New Roman', serif;
+  --display:    'Barlow Condensed', 'Arial Narrow', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { background: #C8C3BB; }
+
+body {
+  font-family: var(--serif);
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 16px 64px;
+  gap: 26px;
+}
+
+/* ── A4 PAGE — fixed 210×297mm, 1:1 with the PDF ── */
+.page {
+  width: 210mm;
+  height: 297mm;
+  background: var(--paper);
+  box-shadow: 0 6px 40px rgba(0,0,0,0.28), 0 1px 3px rgba(0,0,0,0.14);
+  padding: 18mm 20mm 16mm;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* watermark only on cover */
+.page.cover::after {
+  content: '';
+  position: absolute;
+  top: 52%; left: 50%;
+  transform: translate(-50%,-50%) rotate(-12deg);
+  width: 360px; height: 360px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cg stroke='%23C9A84C' stroke-width='2.4' fill='none'%3E%3Cpath d='M30.6 87 A34 34 0 0 1 50.6 37.3'/%3E%3Cpath d='M69.4 37.3 A34 34 0 0 1 89.4 87'/%3E%3C/g%3E%3Cg fill='%23C9A84C'%3E%3Cellipse cx='49' cy='42' rx='10' ry='3.3' transform='rotate(-42 49 42)'/%3E%3Cellipse cx='37' cy='50' rx='10' ry='3.3' transform='rotate(-66 37 50)'/%3E%3Cellipse cx='30' cy='62' rx='10' ry='3.3' transform='rotate(-90 30 62)'/%3E%3Cellipse cx='28' cy='75' rx='10' ry='3.3' transform='rotate(-114 28 75)'/%3E%3Cellipse cx='32' cy='87' rx='10' ry='3.3' transform='rotate(-138 32 87)'/%3E%3Cellipse cx='71' cy='42' rx='10' ry='3.3' transform='rotate(42 71 42)'/%3E%3Cellipse cx='83' cy='50' rx='10' ry='3.3' transform='rotate(66 83 50)'/%3E%3Cellipse cx='90' cy='62' rx='10' ry='3.3' transform='rotate(90 90 62)'/%3E%3Cellipse cx='92' cy='75' rx='10' ry='3.3' transform='rotate(114 92 75)'/%3E%3Cellipse cx='88' cy='87' rx='10' ry='3.3' transform='rotate(138 88 87)'/%3E%3C/g%3E%3Cg transform='translate(0,13)'%3E%3Cpath d='M60 24 C 52 36, 48 44, 51 54 C 45 52, 43 46, 43 46 C 40 56, 48 70, 60 70 C 72 70, 78 58, 74 47 C 72 40, 64 36, 60 24 Z' fill='%23C9A84C'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat;
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page-body { position: relative; z-index: 1; flex: 1; min-height: 0; }
+
+/* ── PAGE HEADER (every content page) ── */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 9px;
+  border-bottom: 1px solid var(--gold);
+  margin-bottom: 22px;
+  flex-shrink: 0;
+}
+.page-header-club {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--carbon);
+}
+.page-header-club em { color: var(--gold); font-style: normal; }
+.page-header-doc {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 10.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+}
+
+/* ── PAGE FOOTER ── */
+.page-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 8px;
+  border-top: var(--rule-thin);
+  margin-top: 14px;
+  flex-shrink: 0;
+  font-family: var(--display);
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+}
+.page-footer .pf-num { color: var(--gold-deep); font-weight: 700; }
+
+/* ── CHAPTER HEADER ── */
+.chapter-bar {
+  background: var(--carbon);
+  padding: 11px 20mm;
+  margin: 0 -20mm 4px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.chapter-bar.first { margin-top: 0; }
+.chapter-bar:not(.first) { margin-top: 18px; }
+.chapter-num {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 12.5px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  white-space: nowrap;
+}
+.chapter-title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(242,242,242,0.78);
+}
+
+/* ── ARTICLE ── */
+.article { margin-top: 18px; }
+.article:first-of-type { margin-top: 20px; }
+.article-head {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 6px;
+  padding-bottom: 4px;
+  border-bottom: var(--rule-thin);
+}
+.article-num {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  white-space: nowrap;
+}
+.article-name {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  color: var(--carbon);
+}
+.article p {
+  font-size: 13.5px;
+  line-height: 1.62;
+  text-align: justify;
+  text-wrap: pretty;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.article p:last-child { margin-bottom: 0; }
+
+.article ul, .article ol { margin: 6px 0 8px; }
+.article ul { list-style: none; padding-left: 0.4em; }
+.article ul li {
+  font-size: 13.5px; line-height: 1.55; color: var(--ink);
+  text-align: justify; padding-left: 1.3em; text-indent: -1.3em; margin-bottom: 3px;
+}
+.article ul li::before { content: '●'; color: var(--gold); margin-right: 0.5em; font-size: 8px; vertical-align: middle; }
+.article ol { padding-left: 1.8em; }
+.article ol li {
+  font-size: 13.5px; line-height: 1.55; color: var(--ink);
+  text-align: justify; margin-bottom: 3px; padding-left: 0.3em;
+}
+.article .alpha-list { list-style: none; padding-left: 0; }
+.article .alpha-list li { padding-left: 1.7em; text-indent: -1.7em; }
+
+/* ── COVER ── */
+.cover .page-body { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.stripe-top {
+  height: 4px;
+  background: repeating-linear-gradient(90deg,
+    var(--gold) 0, var(--gold) 40px, var(--paper) 40px, var(--paper) 48px,
+    var(--purple) 48px, var(--purple) 50px, var(--paper) 50px, var(--paper) 58px);
+  margin: 0 0 40px;
+  flex-shrink: 0;
+}
+.cover-isotipo { margin: 22px 0 28px; }
+.cover-club {
+  font-family: var(--display); font-weight: 900; font-size: 40px;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--carbon);
+  line-height: 1; margin-bottom: 7px;
+}
+.cover-club em { color: var(--gold); font-style: normal; }
+.cover-sede {
+  font-style: italic; font-size: 15px; color: var(--ink-mid);
+  letter-spacing: 0.08em; margin-bottom: 40px;
+}
+.cover-rule { width: 100%; height: 1px; margin: 4px 0;
+  background: linear-gradient(90deg, transparent, var(--gold) 20%, var(--gold) 80%, transparent); }
+.cover-rule.thick { height: 3px; margin: 2px 0; }
+.cover-title-block { padding: 32px 0 28px; }
+.cover-title-eyebrow {
+  font-family: var(--display); font-weight: 700; font-size: 11px;
+  letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 12px;
+}
+.cover-title {
+  font-family: var(--display); font-weight: 900; font-size: 66px;
+  letter-spacing: 0.04em; text-transform: uppercase; color: var(--carbon); line-height: 0.9;
+}
+.cover-approval { margin-top: 44px; padding-top: 30px; border-top: var(--rule-thin); }
+.cover-approval p { font-style: italic; font-size: 15px; color: var(--ink-mid); margin-bottom: 6px; }
+.cover-approval .date-line {
+  font-family: var(--display); font-weight: 700; font-size: 13px;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); margin-top: 12px;
+}
+.cover-bottom {
+  margin-top: auto; padding-top: 20px; border-top: var(--rule-thin);
+  display: flex; justify-content: space-between; align-items: center; width: 100%;
+}
+.cover-bottom-text { font-size: 11px; color: var(--ink-mid); letter-spacing: 0.04em; text-align: left; line-height: 1.6; }
+.cover-bottom-ref {
+  font-family: var(--display); font-weight: 700; font-size: 11px;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-deep); text-align: right;
+}
+
+/* ── SIGNATURES ── */
+.sig-intro { font-style: italic; font-size: 13.5px; line-height: 1.65; text-align: justify; color: var(--ink); margin-bottom: 40px; }
+.sig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px 50px; margin-bottom: 44px; }
+.sig-line { border-bottom: 1px solid var(--carbon); margin-bottom: 9px; height: 40px; }
+.sig-name { font-weight: 600; font-size: 14px; color: var(--carbon); line-height: 1.3; }
+.sig-role { font-size: 13px; color: var(--ink-mid); font-style: italic; line-height: 1.4; }
+.sig-cc { font-size: 12px; color: var(--ink-mid); margin-top: 2px; font-family: var(--display); letter-spacing: 0.06em; }
+.sig-footer { padding-top: 22px; border-top: var(--rule-thin); font-style: italic; font-size: 14px; color: var(--ink-mid); text-align: center; line-height: 1.7; }
+
+/* ── PRINT — each .page maps to exactly one A4 sheet ── */
+@media print {
+  @page { size: A4; margin: 0; }
+  html, body { background: white !important; padding: 0 !important; margin: 0 !important; gap: 0 !important; display: block !important; }
+  .page {
+    box-shadow: none !important;
+    margin: 0 !important;
+    width: 210mm !important;
+    height: 297mm !important;
+    page-break-after: always;
+    break-after: page;
+  }
+  .page:last-child { page-break-after: auto !important; break-after: auto !important; }
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+</style>
+</head>
+<body>
+<div class="page cover">
+  <div class="stripe-top"></div>
+  <div class="page-body">
+    <div class="cover-isotipo"><svg width="92" height="92" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g stroke="#C9A84C" stroke-width="2.4" fill="none" stroke-linecap="round">
+    <path d="M 30.6 87.0 A 34 34 0 0 1 50.6 37.3"/>
+    <path d="M 69.4 37.3 A 34 34 0 0 1 89.4 87.0"/>
+  </g>
+  <g fill="#C9A84C">
+    <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(49.3 40.6) rotate(-42.0)"/>
+    <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(38.3 47.5) rotate(-66.0)"/>
+    <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(31.0 58.3) rotate(-90.0)"/>
+    <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(28.7 71.1) rotate(-114.0)"/>
+    <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(31.9 83.7) rotate(-138.0)"/>
+    <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(70.7 40.6) rotate(42.0)"/>
+    <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(81.7 47.5) rotate(66.0)"/>
+    <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(89.0 58.3) rotate(90.0)"/>
+    <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(91.3 71.1) rotate(114.0)"/>
+    <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(88.1 83.7) rotate(138.0)"/>
+  </g>
+  <g stroke="#15161C" stroke-width="0.85" stroke-linecap="round">
+    <line x1="-7.3" y1="0" x2="8.9" y2="0" transform="translate(49.3 40.6) rotate(-42.0)"/>
+    <line x1="-7.3" y1="0" x2="8.9" y2="0" transform="translate(38.3 47.5) rotate(-66.0)"/>
+    <line x1="-7.3" y1="0" x2="8.9" y2="0" transform="translate(31.0 58.3) rotate(-90.0)"/>
+    <line x1="-7.3" y1="0" x2="8.9" y2="0" transform="translate(28.7 71.1) rotate(-114.0)"/>
+    <line x1="-7.3" y1="0" x2="8.9" y2="0" transform="translate(31.9 83.7) rotate(-138.0)"/>
+    <line x1="-7.3" y1="0" x2="8.9" y2="0" transform="translate(70.7 40.6) rotate(42.0)"/>
+    <line x1="-7.3" y1="0" x2="8.9" y2="0" transform="translate(81.7 47.5) rotate(66.0)"/>
+    <line x1="-7.3" y1="0" x2="8.9" y2="0" transform="translate(89.0 58.3) rotate(90.0)"/>
+    <line x1="-7.3" y1="0" x2="8.9" y2="0" transform="translate(91.3 71.1) rotate(114.0)"/>
+    <line x1="-7.3" y1="0" x2="8.9" y2="0" transform="translate(88.1 83.7) rotate(138.0)"/>
+  </g>
+  <g transform="translate(0,13)">
+    <path d="M60 24 C 52 36, 48 44, 51 54 C 45 52, 43 46, 43 46 C 40 56, 48 70, 60 70 C 72 70, 78 58, 74 47 C 72 40, 64 36, 60 24 Z" fill="#C9A84C"/>
+    <path d="M60 40 C 56 48, 55 56, 60 63 C 66 57, 65 47, 60 40 Z" fill="#4C3B9A"/>
+  </g>
+</svg></div>
+    <div class="cover-club">CLUB DEPORTIVO <em>PRIME</em></div>
+    <div class="cover-sede">Zipaquirá, Cundinamarca &nbsp;·&nbsp; República de Colombia</div>
+    <div class="cover-rule thick"></div>
+    <div class="cover-rule"></div>
+    <div class="cover-title-block">
+      <div class="cover-title-eyebrow">Documento Oficial del Club</div>
+      <div class="cover-title">ESTATUTOS<br>SOCIALES</div>
+    </div>
+    <div class="cover-rule"></div>
+    <div class="cover-rule thick"></div>
+    <div class="cover-approval">
+      <p>Aprobados en Asamblea Constitutiva del Club Deportivo Prime</p>
+      <div class="date-line">Zipaquirá, _____ de __________________ de 2026</div>
+    </div>
+    <div class="cover-bottom">
+      <div class="cover-bottom-text">Ley 181 de 1995 &nbsp;·&nbsp; Decreto Ley 1228 de 1995<br>Resolución 000410 del 13 de mayo de 2026 — Ministerio del Deporte</div>
+      <div class="cover-bottom-ref">Versión 3 · 2026</div>
+    </div>
+  </div>
+</div>
+<div class="page"><div class="page-body"><div class="page-header"><div class="page-header-club">Club Deportivo <em>Prime</em></div><div class="page-header-doc">Estatutos Sociales</div></div><div class="chapter-bar first"><span class="chapter-num">Capítulo I</span><span class="chapter-title">Naturaleza, Nombre, Objeto y Domicilio</span></div><div class="article"><div class="article-head"><span class="article-num">Artículo Primero.</span><span class="article-name">Nombre y Naturaleza</span></div><p>Constitúyase como organismo deportivo de derecho privado el CLUB DEPORTIVO PRIME, en adelante el Club, con domicilio en el municipio de Zipaquirá, departamento de Cundinamarca, República de Colombia. El Club se rige por la Ley 181 de 1995, el Decreto Ley 1228 de 1995, la Resolución 000410 del 13 de mayo de 2026 del Ministerio del Deporte y demás normas concordantes, así como por los presentes Estatutos. Los fundadores y directivos del Club podrán percibir remuneración por los servicios profesionales que presten al Club en su calidad de entrenadores, directores o asesores.</p></div><div class="article"><div class="article-head"><span class="article-num">Artículo Segundo.</span><span class="article-name">Objeto</span></div><p>El Club tiene como objeto el fomento, protección, apoyo, patrocinio y desarrollo del deporte del voleibol en el municipio de Zipaquirá en todas sus modalidades: masculino adulto, femenino adulto, mixto e infantil desde los seis (6) años. Su propósito es desarrollar jugadores de alto rendimiento con proyección regional, departamental y nacional, a través de una metodología de formación profesional y visión a largo plazo que forme no solo deportistas competitivos sino personas íntegras y disciplinadas.</p></div><div class="article"><div class="article-head"><span class="article-num">Artículo Tercero.</span><span class="article-name">Domicilio</span></div><p>El domicilio del Club es el municipio de Zipaquirá, Cundinamarca. Podrá realizar actividades en cualquier instalación deportiva del municipio y en los municipios donde participe en competencias, sin que ello implique cambio de domicilio. La modificación del domicilio requiere decisión del Órgano de Administración.</p></div></div><div class="page-footer"><span>Club Deportivo Prime · Zipaquirá</span><span class="pf-num">Página 2 de 14</span></div></div>
+<div class="page"><div class="page-body"><div class="page-header"><div class="page-header-club">Club Deportivo <em>Prime</em></div><div class="page-header-doc">Estatutos Sociales</div></div><div class="article"><div class="article-head"><span class="article-num">Artículo Cuarto.</span><span class="article-name">Colores Deportivos</span></div><p>Los colores oficiales del Club son:</p><ul><li>Negro Carbón (#15161C) — color base y dominante de la identidad visual.</li><li>Dorado Real (#C9A84C) — color de autoridad, bordes y detalles clave.</li><li>Púrpura Técnico (#4C3B9A) — color de precisión y detalles deportivos.</li><li>Blanco Funcional (#F2F2F2) — para texto y datos sobre fondos oscuros.</li></ul><p>Los colores del uniforme de competencia son el Negro Carbón y el Dorado Real, con acentos en Púrpura Técnico.</p></div><div class="article"><div class="article-head"><span class="article-num">Artículo Quinto.</span><span class="article-name">Vigencia</span></div><p>El Club tendrá duración indefinida contada desde la Asamblea Constitutiva, y solo podrá disolverse por las causales previstas en estos Estatutos o por mandato legal.</p></div><div class="chapter-bar"><span class="chapter-num">Capítulo II</span><span class="chapter-title">De los Afiliados</span></div><div class="article"><div class="article-head"><span class="article-num">Artículo Sexto.</span><span class="article-name">Clases de Afiliados</span></div><p>El Club tendrá dos clases de afiliados:</p><ol><li>Afiliado Constituyente: deportista que participó en la fundación del Club, cuya calidad se acredita con el Acta de Constitución.</li><li>Afiliado: deportista admitido con posterioridad a la constitución, cuya calidad se acredita con el documento de afiliación.</li></ol></div></div><div class="page-footer"><span>Club Deportivo Prime · Zipaquirá</span><span class="pf-num">Página 3 de 14</span></div></div>
+<div class="page"><div class="page-body"><div class="page-header"><div class="page-header-club">Club Deportivo <em>Prime</em></div><div class="page-header-doc">Estatutos Sociales</div></div><div class="article"><div class="article-head"><span class="article-num">Artículo Séptimo.</span><span class="article-name">Requisitos para la Afiliación</span></div><p>Para afiliarse, el deportista deberá presentar al Órgano de Administración:</p><ol><li>Solicitud escrita con nombres y apellidos completos, documento de identidad, domicilio, fecha y lugar de nacimiento, y modalidad que practica.</li><li>Copia del documento de identidad.</li><li>Certificado de afiliación a salud (EPS) vigente.</li><li>Certificado médico de aptitud físico-deportiva.</li><li>Aceptación expresa de los presentes Estatutos, de la Ley 181 de 1995, del Decreto Ley 1228 de 1995 y de las Normas Antidopaje vigentes.</li><li>Autorización de transferencia del club anterior, si el deportista estuviera afiliado a otro.</li><li>Cancelar la cuota de inscripción fijada por el Órgano de Administración.</li></ol><p>Cuando el deportista sea menor de edad, la solicitud será presentada por su representante legal.</p></div><div class="article"><div class="article-head"><span class="article-num">Artículo Octavo.</span><span class="article-name">Derechos de los Afiliados</span></div><p>Son derechos de los afiliados:</p><ul class="alpha-list"><li>a)&nbsp; Participar en las actividades deportivas, recreativas y sociales del Club.</li><li>b)&nbsp; Elegir y ser elegido para los órganos del Club, cumpliendo los requisitos estatutarios.</li><li>c)&nbsp; Recibir la camiseta oficial del Club. El plazo máximo de entrega es de cuarenta y cinco (45) días hábiles contados desde la fecha de inscripción.</li><li>d)&nbsp; Acceder al seguimiento y métricas de su progreso deportivo individual.</li><li>e)&nbsp; Ser informado sobre las decisiones del Órgano de Administración que le afecten.</li><li>f)&nbsp; Interponer los recursos y acciones previstas en estos Estatutos.</li></ul></div></div><div class="page-footer"><span>Club Deportivo Prime · Zipaquirá</span><span class="pf-num">Página 4 de 14</span></div></div>
+<div class="page"><div class="page-body"><div class="page-header"><div class="page-header-club">Club Deportivo <em>Prime</em></div><div class="page-header-doc">Estatutos Sociales</div></div><div class="article"><div class="article-head"><span class="article-num">Artículo Noveno.</span><span class="article-name">Deberes de los Afiliados</span></div><p>Son deberes de los afiliados:</p><ul class="alpha-list"><li>a)&nbsp; Cumplir y respetar los presentes Estatutos, los reglamentos internos y las decisiones de los órganos del Club.</li><li>b)&nbsp; Pagar oportunamente la mensualidad el día 1 de cada mes. El período de gracia vence el día 5. El incumplimiento genera suspensión automática hasta regularizar el pago.</li><li>c)&nbsp; Asistir con puntualidad y responsabilidad a las sesiones de entrenamiento y eventos del Club.</li><li>d)&nbsp; Respetar a compañeros, entrenadores, árbitros y demás personas vinculadas al Club.</li><li>e)&nbsp; Acatar las normas antidopaje nacionales e internacionales vigentes.</li><li>f)&nbsp; Cuidar y preservar los implementos, equipos e instalaciones del Club.</li></ul></div><div class="article"><div class="article-head"><span class="article-num">Artículo Décimo.</span><span class="article-name">Retiro y Suspensión</span></div><p>La condición de afiliado se pierde o suspende en los siguientes casos:</p><ol><li>Por retiro voluntario mediante comunicación escrita al Órgano de Administración.</li><li>Por incumplimiento en el pago de la mensualidad después del día 5. La suspensión es automática y se levanta de forma automática al regularizar el pago, sin necesidad de pronunciamiento adicional.</li><li>Por sanción disciplinaria impuesta por la Comisión Disciplinaria, mediante el proceso previsto en la Ley 49 de 1993 y el Código Disciplinario del Club.</li></ol></div></div><div class="page-footer"><span>Club Deportivo Prime · Zipaquirá</span><span class="pf-num">Página 5 de 14</span></div></div>
+<div class="page"><div class="page-body"><div class="page-header"><div class="page-header-club">Club Deportivo <em>Prime</em></div><div class="page-header-doc">Estatutos Sociales</div></div><div class="chapter-bar first"><span class="chapter-num">Capítulo III</span><span class="chapter-title">Estructura del Club</span></div><div class="article"><div class="article-head"><span class="article-num">Artículo Décimo Primero.</span><span class="article-name">Órganos del Club</span></div><p>El Club Deportivo Prime está integrado por los siguientes órganos:</p><ul class="alpha-list"><li>a)&nbsp; Órgano de Dirección: Asamblea General de Afiliados.</li><li>b)&nbsp; Órgano de Administración Colegiado: integrado por el Presidente y el Vicepresidente.</li><li>c)&nbsp; Comisión Disciplinaria.</li></ul></div><div class="chapter-bar"><span class="chapter-num">Capítulo IV</span><span class="chapter-title">Asamblea General de Afiliados</span></div><div class="article"><div class="article-head"><span class="article-num">Artículo Décimo Segundo.</span><span class="article-name">Naturaleza y Composición</span></div><p>La Asamblea General de Afiliados es el órgano de dirección del Club. La integran todos los afiliados que estén a paz y salvo con sus obligaciones económicas y cuya afiliación no haya sido suspendida por la Comisión Disciplinaria.</p></div><div class="article"><div class="article-head"><span class="article-num">Artículo Décimo Tercero.</span><span class="article-name">Reuniones</span></div><p>La Asamblea se reunirá ordinariamente una (1) vez al año, dentro de los tres primeros meses, previa convocatoria del Presidente con no menos de quince (15) días de anticipación. Se reunirá de forma extraordinaria cuando las circunstancias lo requieran, a convocatoria del Presidente.</p></div></div><div class="page-footer"><span>Club Deportivo Prime · Zipaquirá</span><span class="pf-num">Página 6 de 14</span></div></div>
+<div class="page"><div class="page-body"><div class="page-header"><div class="page-header-club">Club Deportivo <em>Prime</em></div><div class="page-header-doc">Estatutos Sociales</div></div><div class="article"><div class="article-head"><span class="article-num">Artículo Décimo Cuarto.</span><span class="article-name">Quórum y Decisiones</span></div><p>El quórum deliberatorio y decisorio lo constituye la presencia de mínimo dos (2) afiliados hábiles. Las decisiones se tomarán por mayoría de votos de los presentes. Las reformas estatutarias requerirán el voto favorable de las dos terceras (2/3) partes de los afiliados hábiles presentes, no pudiendo ser inferior a dos (2) personas.</p></div><div class="article"><div class="article-head"><span class="article-num">Artículo Décimo Quinto.</span><span class="article-name">Funciones de la Asamblea</span></div><p>Son funciones de la Asamblea General de Afiliados:</p><ul class="alpha-list"><li>a)&nbsp; Reformar los Estatutos del Club, con el quórum calificado del artículo anterior.</li><li>b)&nbsp; Ratificar los miembros del Órgano de Administración al inicio de cada período estatutario.</li><li>c)&nbsp; Ratificar dos (2) miembros de la Comisión Disciplinaria.</li><li>d)&nbsp; Recibir los informes de gestión del Órgano de Administración.</li></ul><p>Las cuotas de inscripción, mensualidad y demás tarifas del Club son fijadas y modificadas exclusivamente por el Órgano de Administración mediante reglamento interno, sin requerir aprobación de la Asamblea.</p></div></div><div class="page-footer"><span>Club Deportivo Prime · Zipaquirá</span><span class="pf-num">Página 7 de 14</span></div></div>
+<div class="page"><div class="page-body"><div class="page-header"><div class="page-header-club">Club Deportivo <em>Prime</em></div><div class="page-header-doc">Estatutos Sociales</div></div><div class="chapter-bar first"><span class="chapter-num">Capítulo V</span><span class="chapter-title">Órgano de Administración</span></div><div class="article"><div class="article-head"><span class="article-num">Artículo Décimo Sexto.</span><span class="article-name">Composición</span></div><p>El Órgano de Administración será colegiado, compuesto por dos (2) miembros: un Presidente y un Vicepresidente. El cargo de Presidente corresponde a David Sebastián Fonseca Carvajal como fundador del Club, y el cargo de Vicepresidente a Jose David Caicedo Garavito como fundador. El Presidente tendrá la calidad de Representante Legal del Club. Ambos fundadores son los únicos elegibles para ocupar estos cargos de manera perpetua mientras así lo deseen y se encuentren en condiciones de ejercerlos.</p></div><div class="article"><div class="article-head"><span class="article-num">Artículo Décimo Séptimo.</span><span class="article-name">Período, Ratificación y Reelección</span></div><p>Los miembros del Órgano de Administración ejercerán sus funciones por períodos de cuatro (4) años contados desde la fecha establecida en el Acta de Constitución, conforme lo establece el artículo 14 del Decreto Ley 1228 de 1995. Al vencimiento de cada período, la Asamblea General ratificará automáticamente a los fundadores en sus cargos mediante acta, salvo renuncia voluntaria de alguno de ellos. La reelección es indefinida mientras los fundadores deseen continuar.</p></div></div><div class="page-footer"><span>Club Deportivo Prime · Zipaquirá</span><span class="pf-num">Página 8 de 14</span></div></div>
+<div class="page"><div class="page-body"><div class="page-header"><div class="page-header-club">Club Deportivo <em>Prime</em></div><div class="page-header-doc">Estatutos Sociales</div></div><div class="article"><div class="article-head"><span class="article-num">Artículo Décimo Octavo.</span><span class="article-name">Funciones del Presidente</span></div><p>Son funciones del Presidente:</p><ul class="alpha-list"><li>a)&nbsp; Representar legalmente al Club ante personas naturales, jurídicas, entidades públicas y privadas.</li><li>b)&nbsp; Convocar y presidir las reuniones de la Asamblea General y del Órgano de Administración.</li><li>c)&nbsp; Administrar los recursos del Club.</li><li>d)&nbsp; Suscribir los contratos y actos jurídicos del Club.</li><li>e)&nbsp; Nombrar al tercer miembro de la Comisión Disciplinaria.</li><li>f)&nbsp; Fijar y ajustar las cuotas, tarifas y precios del Club mediante reglamento interno.</li><li>g)&nbsp; Presentar los informes de gestión ante la Asamblea.</li><li>h)&nbsp; Velar por el cumplimiento de los presentes Estatutos.</li><li>i)&nbsp; Percibir una remuneración por los servicios de dirección, entrenamiento y administración prestados al Club.</li></ul></div><div class="article"><div class="article-head"><span class="article-num">Artículo Décimo Noveno.</span><span class="article-name">Funciones del Vicepresidente</span></div><p>El Vicepresidente apoyará al Presidente en todas sus funciones, lo reemplazará en ausencias temporales o absolutas expresamente declaradas por el Presidente, tendrá a su cargo la coordinación de los programas deportivos y la gestión de la comunidad de afiliados. El Vicepresidente percibirá una remuneración por los servicios de entrenamiento y coordinación prestados al Club.</p></div></div><div class="page-footer"><span>Club Deportivo Prime · Zipaquirá</span><span class="pf-num">Página 9 de 14</span></div></div>
+<div class="page"><div class="page-body"><div class="page-header"><div class="page-header-club">Club Deportivo <em>Prime</em></div><div class="page-header-doc">Estatutos Sociales</div></div><div class="article"><div class="article-head"><span class="article-num">Artículo Vigésimo.</span><span class="article-name">Quórum y Decisiones del Órgano de Administración</span></div><p>Las decisiones del Órgano de Administración requerirán la participación de ambos miembros y se tomarán de mutuo acuerdo, dejando constancia en acta. En caso de empate, el Presidente tendrá voto de calidad. En situaciones que requieran decisión inmediata y cuando no sea posible la consulta oportuna, el Presidente queda facultado para actuar de manera unilateral en representación del Órgano de Administración, con el deber de informar al Vicepresidente en la siguiente oportunidad.</p></div><div class="chapter-bar"><span class="chapter-num">Capítulo VI</span><span class="chapter-title">Comisión Disciplinaria</span></div><div class="article"><div class="article-head"><span class="article-num">Artículo Vigésimo Primero.</span><span class="article-name">Composición</span></div><p>La Comisión Disciplinaria estará integrada por tres (3) miembros: dos (2) ratificados por la Asamblea General de Afiliados y uno (1) designado por el Presidente del Club. Los miembros de la Comisión no podrán pertenecer al Órgano de Administración.</p></div><div class="article"><div class="article-head"><span class="article-num">Artículo Vigésimo Segundo.</span><span class="article-name">Período</span></div><p>Los miembros de la Comisión Disciplinaria ejercerán sus funciones por cuatro (4) años, conforme lo establece el artículo 25 de la Resolución 000410 de 2026. Podrán ser ratificados en el cargo al término de cada período.</p></div><div class="article"><div class="article-head"><span class="article-num">Artículo Vigésimo Tercero.</span><span class="article-name">Funciones</span></div><p>La Comisión Disciplinaria conocerá y resolverá las faltas de los miembros del Club en primera instancia, y en única instancia las cometidas en eventos o torneos organizados por el Club. Proferirá sus fallos con base en la Ley 49 de 1993 y en el Código Disciplinario del organismo deportivo municipal.</p></div></div><div class="page-footer"><span>Club Deportivo Prime · Zipaquirá</span><span class="pf-num">Página 10 de 14</span></div></div>
+<div class="page"><div class="page-body"><div class="page-header"><div class="page-header-club">Club Deportivo <em>Prime</em></div><div class="page-header-doc">Estatutos Sociales</div></div><div class="chapter-bar first"><span class="chapter-num">Capítulo VII</span><span class="chapter-title">Patrimonio y Recursos</span></div><div class="article"><div class="article-head"><span class="article-num">Artículo Vigésimo Cuarto.</span><span class="article-name">Patrimonio</span></div><p>El patrimonio del Club estará conformado por:</p><ul class="alpha-list"><li>a)&nbsp; Las cuotas de inscripción y sostenimiento pagadas por los afiliados.</li><li>b)&nbsp; Los aportes, donaciones o auxilios de personas naturales o jurídicas, públicas o privadas.</li><li>c)&nbsp; Los bienes muebles e inmuebles adquiridos a cualquier título.</li><li>d)&nbsp; Los rendimientos y frutos de sus propios bienes y actividades.</li></ul></div><div class="article"><div class="article-head"><span class="article-num">Artículo Vigésimo Quinto.</span><span class="article-name">Administración de Fondos y Remuneración</span></div><p>Los recursos del Club se manejarán a través de una cuenta bancaria única a nombre del Club, con firma del Presidente. El Órgano de Administración llevará registros contables de los ingresos y egresos y los presentará en el informe anual de gestión. Los fundadores y directivos tienen derecho a recibir remuneración mensual por los servicios de entrenamiento, dirección y administración que presten al Club, la cual será determinada por el Órgano de Administración en el reglamento interno.</p></div><div class="article"><div class="article-head"><span class="article-num">Artículo Vigésimo Sexto.</span><span class="article-name">Cuotas y Tarifas</span></div><p>Las cuotas de inscripción, las mensualidades y cualquier otra tarifa del Club serán fijadas, ajustadas y comunicadas a los afiliados por el Órgano de Administración mediante reglamento interno. No requieren aprobación de la Asamblea. El Órgano de Administración podrá modificar las tarifas con notificación a los afiliados con no menos de quince (15) días de anticipación.</p></div></div><div class="page-footer"><span>Club Deportivo Prime · Zipaquirá</span><span class="pf-num">Página 11 de 14</span></div></div>
+<div class="page"><div class="page-body"><div class="page-header"><div class="page-header-club">Club Deportivo <em>Prime</em></div><div class="page-header-doc">Estatutos Sociales</div></div><div class="chapter-bar first"><span class="chapter-num">Capítulo VIII</span><span class="chapter-title">Reforma de Estatutos</span></div><div class="article"><div class="article-head"><span class="article-num">Artículo Vigésimo Séptimo.</span><span class="article-name">Procedimiento</span></div><p>Los presentes Estatutos podrán ser reformados por la Asamblea General de Afiliados, previa convocatoria que incluya el proyecto de reforma como punto del orden del día con no menos de quince (15) días de anticipación. La reforma requerirá el voto favorable de las dos terceras (2/3) partes de los afiliados hábiles presentes. En cualquier caso, ninguna reforma estatutaria podrá desconocer los derechos de los fundadores establecidos en el Capítulo V de los presentes Estatutos sin el consentimiento expreso y por escrito de ambos fundadores.</p></div><div class="chapter-bar"><span class="chapter-num">Capítulo IX</span><span class="chapter-title">Disolución y Liquidación</span></div><div class="article"><div class="article-head"><span class="article-num">Artículo Vigésimo Octavo.</span><span class="article-name">Causales de Disolución</span></div><p>El Club se disolverá por:</p><ol><li>Decisión unánime de la totalidad de los afiliados hábiles del Club, incluidos los fundadores.</li><li>Reducción del número de afiliados por debajo del mínimo legal durante un período superior a doce (12) meses continuos.</li><li>Por mandato de autoridad competente o por causas establecidas en la ley.</li></ol></div><div class="article"><div class="article-head"><span class="article-num">Artículo Vigésimo Noveno.</span><span class="article-name">Liquidación</span></div><p>En caso de disolución, el Órgano de Administración actuará como liquidador. Una vez cubiertas todas las obligaciones del Club, los bienes y recursos remanentes serán distribuidos entre los fundadores como restitución de su inversión inicial y compensación por su trabajo en la construcción del Club. Los activos no reclamados por los fundadores podrán destinarse a otra organización deportiva en el municipio de Zipaquirá, a criterio exclusivo del Órgano de Administración.</p></div></div><div class="page-footer"><span>Club Deportivo Prime · Zipaquirá</span><span class="pf-num">Página 12 de 14</span></div></div>
+<div class="page"><div class="page-body"><div class="page-header"><div class="page-header-club">Club Deportivo <em>Prime</em></div><div class="page-header-doc">Estatutos Sociales</div></div><div class="chapter-bar first"><span class="chapter-num">Capítulo X</span><span class="chapter-title">Disposiciones Finales</span></div><div class="article"><div class="article-head"><span class="article-num">Artículo Trigésimo.</span><span class="article-name">Reglamentos Internos</span></div><p>El Órgano de Administración expedirá reglamentos internos para regular la operación del Club, los programas de entrenamiento, el uso de instalaciones, la estructura de precios, la gestión de pagos, la metodología de formación y cualquier otro aspecto operativo. Los reglamentos internos son de obligatorio cumplimiento para todos los afiliados y no requieren aprobación de la Asamblea.</p></div><div class="article"><div class="article-head"><span class="article-num">Artículo Trigésimo Primero.</span><span class="article-name">Normas Aplicables</span></div><p>En lo no previsto en los presentes Estatutos, el Club se regirá por la Ley 181 de 1995, el Decreto Ley 1228 de 1995, la Resolución 000410 del 13 de mayo de 2026 del Ministerio del Deporte y demás normas que las modifiquen, adicionen o sustituyan.</p></div><div class="article"><div class="article-head"><span class="article-num">Artículo Trigésimo Segundo.</span><span class="article-name">Vigencia</span></div><p>Los presentes Estatutos rigen a partir de su aprobación en la Asamblea Constitutiva del Club Deportivo Prime, celebrada en el municipio de Zipaquirá.</p></div></div><div class="page-footer"><span>Club Deportivo Prime · Zipaquirá</span><span class="pf-num">Página 13 de 14</span></div></div>
+<div class="page"><div class="page-body"><div class="page-header"><div class="page-header-club">Club Deportivo <em>Prime</em></div><div class="page-header-doc">Estatutos Sociales</div></div><div class="chapter-bar" style="background:#9E8338;margin-top:24px;"><span class="chapter-num" style="color:#FAFAF6;letter-spacing:0.26em;">Constancia de Aprobación</span></div>
+<div style="margin-top:22px;">
+  <p class="sig-intro">Los presentes Estatutos fueron leídos, discutidos y aprobados por unanimidad por los afiliados constituyentes del Club Deportivo Prime en Asamblea Constitutiva realizada en el municipio de Zipaquirá, Cundinamarca, el día _____ del mes de __________________ de 2026.</p>
+  <div class="sig-grid">
+    <div class="sig-block"><div class="sig-line"></div><div class="sig-name">David Sebastián Fonseca Carvajal</div><div class="sig-role">Presidente — Representante Legal<br>Club Deportivo Prime</div><div class="sig-cc">C.C. 175.684.517</div></div>
+    <div class="sig-block"><div class="sig-line"></div><div class="sig-name">Jose David Caicedo Garavito</div><div class="sig-role">Vicepresidente<br>Club Deportivo Prime</div><div class="sig-cc">C.C. 1.075.678.000</div></div>
+  </div>
+  <div class="sig-footer">Dado en el municipio de Zipaquirá, Cundinamarca,<br>a los _____ días del mes de __________________ de 2026.</div>
+</div></div><div class="page-footer"><span>Club Deportivo Prime · Zipaquirá</span><span class="pf-num">Página 14 de 14</span></div></div>
+<script>
+  document.fonts.ready.then(function(){ setTimeout(function(){ window.print(); }, 500); });
+</script>
+</body>
+</html>

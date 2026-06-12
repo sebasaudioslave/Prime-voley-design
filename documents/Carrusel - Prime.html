@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Brand" name="Carrusel — Prime" subtitle="3 slides 9:16 con escudo real — portada, valor+horarios, precios+pagos+FAQ" -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prime Voley Club — Carrusel 2026</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: #06070A; }
+  body { font-family: var(--font-body); background: #06070A; -webkit-font-smoothing: antialiased; }
+
+  .stage { width: 100%; overflow: hidden; }
+  .deck { width: 1080px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; padding: 40px 0; }
+
+  /* ── 9:16 SLIDE ── */
+  .slide {
+    width: 1080px; height: 1920px;
+    background: var(--carbon-800);
+    color: var(--white);
+    position: relative; overflow: hidden;
+    padding: 64px 80px 56px;
+    display: flex; flex-direction: column;
+  }
+  .slide::before {
+    content: ''; position: absolute; inset: 0;
+    background: var(--pinstripe); opacity: 0.05; pointer-events: none; z-index: 0;
+  }
+  .slide > * { position: relative; z-index: 1; }
+
+  /* slide chrome */
+  .s-top { display: flex; align-items: center; justify-content: space-between; padding-bottom: 22px; border-bottom: 1px solid var(--gold); flex-shrink: 0; }
+  .s-brand { display: flex; align-items: center; gap: 14px; }
+  .s-brand img { width: 46px; height: 46px; object-fit: contain; }
+  .s-brand .nm { font-family: var(--font-display); font-weight: 800; font-size: 20px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); white-space: nowrap; }
+  .s-brand .nm em { color: var(--gold); font-style: normal; }
+  .s-pager { font-family: var(--font-display); font-weight: 800; font-size: 16px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--white-faint); }
+  .s-pager b { color: var(--gold); }
+
+  .s-main { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center; }
+  .s-foot { flex-shrink: 0; padding-top: 20px; border-top: 1px solid var(--carbon-500); display: flex; align-items: center; justify-content: space-between; font-family: var(--font-display); font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white-faint); }
+  .s-foot .swipe { color: var(--gold); }
+
+  .eyebrow { font: var(--eyebrow); font-size: 18px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); }
+  .stripe-trio { display: flex; gap: 6px; }
+  .stripe-trio span { display: block; width: 50px; height: 6px; background: var(--gold); }
+  .stripe-trio span:nth-child(2) { opacity: 0.66; }
+  .stripe-trio span:nth-child(3) { opacity: 0.33; }
+
+  .sec-head { display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; }
+  .sec-title { font-family: var(--font-display); font-weight: 800; font-size: 56px; line-height: 1; letter-spacing: 0.01em; text-transform: uppercase; color: var(--white); }
+  .sec-title .n { color: var(--gold); margin-right: 16px; }
+
+  /* ════════ SLIDE 1 — PORTADA ════════ */
+  .cover-main { align-items: center; text-align: center; justify-content: flex-start; }
+  .cover-glow { position: absolute; top: 0; left: 0; right: 0; height: 1100px; z-index: 0;
+    background: radial-gradient(80% 60% at 50% 18%, rgba(76,59,154,0.30), transparent 65%); pointer-events: none; }
+  .cover-logo { width: 460px; height: auto; margin: 0 auto 30px; filter: drop-shadow(0 18px 40px rgba(0,0,0,0.55)); }
+  .cover-club { font-family: var(--font-display); font-weight: 800; font-size: 40px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); white-space: nowrap; }
+  .cover-club em { color: var(--gold); font-style: normal; }
+  .cover-sede { font-size: 17px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--white-faint); margin-top: 10px; }
+  .cover-div { width: 70px; height: 2px; background: var(--gold); margin: 34px auto; }
+  .cover-headline { width: 100%; text-align: center; font-family: var(--font-display); font-weight: 800; font-size: 58px; line-height: 1.02; letter-spacing: 0.01em; text-transform: uppercase; color: var(--white); margin-top: 28px; }
+  .cover-headline b { color: var(--gold); }
+  .cover-conv { width: 100%; text-align: center; font-size: 21px; line-height: 1.6; color: var(--white-dim); max-width: 800px; margin: auto auto 0; padding-top: 30px; }
+
+  /* ════════ VALUE CARDS ════════ */
+  .value-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .value-card { background: var(--carbon-700); border: 1px solid var(--carbon-500); border-left: 3px solid var(--gold); padding: 30px 30px; }
+  .value-card .vc-ico { width: 46px; height: 46px; margin-bottom: 18px; display: flex; align-items: center; color: var(--gold); }
+  .value-card h3 { font-family: var(--font-display); font-weight: 700; font-size: 27px; letter-spacing: 0.02em; text-transform: uppercase; color: var(--white); margin-bottom: 10px; }
+  .value-card p { font-size: 17.5px; line-height: 1.55; color: var(--white-dim); }
+
+  /* ════════ ENTRENAMIENTOS ════════ */
+  .train-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .train-card { background: linear-gradient(180deg, var(--carbon-700), var(--carbon-800)); border: 1px solid var(--carbon-500); padding: 34px; position: relative; overflow: hidden; }
+  .train-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: var(--gold-stripes); opacity: 0.85; }
+  .train-days { font-family: var(--font-display); font-weight: 900; font-size: 40px; letter-spacing: 0.02em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .train-place { font-size: 21px; color: var(--white); font-weight: 600; margin-bottom: 22px; }
+  .train-time { font-family: var(--font-display); font-weight: 800; font-size: 50px; letter-spacing: 0.01em; color: var(--white); font-variant-numeric: tabular-nums; }
+  .train-time span { font-size: 26px; color: var(--white-faint); }
+  .train-foot { margin-top: 28px; display: flex; align-items: center; gap: 16px; font-size: 19px; color: var(--white-dim); }
+  .train-foot b { color: var(--gold); font-weight: 700; }
+  .train-foot .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--carbon-400); }
+
+  /* ════════ PRECIOS ════════ */
+  .insc { display: flex; align-items: center; justify-content: space-between; gap: 20px; background: var(--carbon-900); border: 1px solid var(--gold-deep); padding: 26px 32px; margin-bottom: 24px; }
+  .insc-l { flex: 1; min-width: 0; }
+  .insc-l .k { font-family: var(--font-display); font-weight: 800; font-size: 28px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--white); }
+  .insc-l .s { font-size: 16px; color: var(--white-dim); margin-top: 4px; }
+  .insc-r { text-align: right; white-space: nowrap; flex-shrink: 0; }
+  .insc-r .price { font-family: var(--font-display); font-weight: 800; font-size: 40px; color: var(--gold); font-variant-numeric: tabular-nums; }
+  .insc-r .once { font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white-faint); }
+
+  .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .plan { background: var(--carbon-700); border: 1px solid var(--carbon-500); padding: 30px 32px; display: flex; flex-direction: column; }
+  .plan.feature { border: 1.5px solid var(--gold); box-shadow: var(--glow-gold); background: linear-gradient(180deg, var(--carbon-700), var(--carbon-800)); }
+  .plan-top { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .plan-name { font-family: var(--font-display); font-weight: 800; font-size: 30px; letter-spacing: 0.03em; text-transform: uppercase; color: var(--white); white-space: nowrap; }
+  .plan-tag { font: var(--eyebrow); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; white-space: nowrap; color: var(--carbon-900); background: var(--gold); padding: 4px 10px; border-radius: var(--r-sm); }
+  .plan-tag.ghost { background: transparent; color: var(--white-faint); border: 1px solid var(--carbon-400); }
+  .plan-price { font-family: var(--font-display); font-weight: 900; font-size: 56px; line-height: 1; color: var(--white); font-variant-numeric: tabular-nums; }
+  .plan.feature .plan-price { color: var(--gold); }
+  .plan-cycle { font-size: 17px; color: var(--white-faint); margin-top: 6px; }
+  .plan-equiv { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--carbon-500); font-size: 17px; color: var(--white-dim); }
+  .plan-equiv b { color: var(--gold-bright); font-weight: 700; }
+  .price-foot { margin-top: 26px; font-size: 18.5px; line-height: 1.5; color: var(--white-dim); border-left: 3px solid var(--purple); padding: 6px 0 6px 20px; }
+  .price-foot b { color: var(--white); }
+
+  /* ════════ PAGOS ════════ */
+  .pay-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .pay-when { background: var(--carbon-700); border: 1px solid var(--carbon-500); padding: 34px; }
+  .pay-step { display: flex; gap: 18px; padding: 12px 0; }
+  .pay-step:not(:last-child) { border-bottom: 1px solid var(--carbon-500); }
+  .pay-day { flex-shrink: 0; width: 60px; height: 60px; border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 900; font-size: 30px; background: var(--carbon-900); color: var(--gold); border: 1px solid var(--gold-deep); }
+  .pay-day.warn { color: var(--carbon-900); background: var(--gold); border-color: var(--gold); }
+  .pay-step .t { font-weight: 700; font-size: 19px; color: var(--white); margin-bottom: 4px; }
+  .pay-step .d { font-size: 16.5px; color: var(--white-dim); line-height: 1.45; }
+  .pay-how { background: var(--carbon-700); border: 1px solid var(--carbon-500); padding: 34px; }
+  .pay-how h3 { font-family: var(--font-display); font-weight: 700; font-size: 25px; letter-spacing: 0.02em; text-transform: uppercase; color: var(--white); margin-bottom: 20px; }
+  .pay-method { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 15px 0; border-bottom: 1px dashed var(--carbon-500); }
+  .pay-method:last-of-type { border-bottom: 0; }
+  .pay-method .m { font-weight: 700; font-size: 19px; color: var(--white); }
+  .pay-method .fill { flex: 1; border-bottom: 1.5px dotted var(--gold-deep); margin: 0 6px 6px; min-width: 40px; height: 1px; }
+  .pay-method .v { font-size: 17px; color: var(--gold-bright); font-variant-numeric: tabular-nums; font-weight: 600; }
+  .pay-note { margin-top: 12px; font-size: 15px; color: var(--white-faint); line-height: 1.45; }
+
+  /* ════════ FAQ ════════ */
+  .faq-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 28px; }
+  .faq-q { display: flex; gap: 10px; font-family: var(--font-display); font-weight: 700; font-size: 23px; letter-spacing: 0.01em; text-transform: uppercase; color: var(--white); margin-bottom: 9px; }
+  .faq-q .qm { color: var(--gold); }
+  .faq-a { font-size: 17.5px; line-height: 1.55; color: var(--white-dim); padding-left: 26px; }
+  .faq-a b { color: var(--white); }
+
+  /* ════════ CTA (slide 3 bottom) ════════ */
+  .cta-band { margin-top: 36px; background: linear-gradient(180deg, var(--carbon-900), #0a0b10); border: 1.5px solid var(--gold-deep); padding: 34px 40px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+  .cta-band .l .big { font-family: var(--font-display); font-weight: 900; font-size: 34px; letter-spacing: 0.02em; text-transform: uppercase; color: var(--white); line-height: 1.05; }
+  .cta-band .l .big b { color: var(--gold); }
+  .cta-band .l .sub { font-size: 18px; color: var(--white-dim); margin-top: 8px; }
+  .cta-band .r { text-align: right; flex-shrink: 0; }
+  .cta-band .r .lbl { font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--white-faint); }
+  .cta-band .r .num { font-family: var(--font-display); font-weight: 900; font-size: 38px; color: var(--gold); font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body>
+<div class="stage">
+<div class="deck">
+
+  <!-- ══════════════ SLIDE 1 — PORTADA ══════════════ -->
+  <section class="slide" id="s1" data-screen-label="01">
+    <div class="cover-glow"></div>
+    <div class="s-top">
+      <div class="s-brand"><img src="../assets/escudo-prime.png" alt="Prime"><span class="nm">PRIME <em>VOLEY</em> CLUB</span></div>
+      <div class="s-pager"><b>01</b> / 03</div>
+    </div>
+    <div class="s-main cover-main">
+      <img class="cover-logo" src="../assets/escudo-prime.png" alt="Escudo Prime Voley">
+      <div class="cover-club">PRIME <em>VOLEY</em> CLUB</div>
+      <div class="cover-sede">Club de Voleibol · Zipaquirá</div>
+      <div class="cover-div"></div>
+      <div class="eyebrow">Temporada 2026 · Lo que acordamos</div>
+      <h1 class="cover-headline">EL PRIMER CLUB<br><b>COMPETITIVO</b><br>DE VOLEIBOL<br>EN ZIPAQUIRÁ</h1>
+      <p class="cover-conv">Construimos la primera cantera de voleibol profesional de Zipaquirá, con la convicción de que la competencia y la disciplina son el primer bastión para formar seres humanos extraordinarios.</p>
+    </div>
+    <div class="s-foot"><span>Prime Voley Club · Zipaquirá</span><span class="swipe">Desliza → precios y horarios</span></div>
+  </section>
+
+  <!-- ══════════════ SLIDE 2 — QUÉ RECIBES + ENTRENAMIENTOS ══════════════ -->
+  <section class="slide" id="s2" data-screen-label="02">
+    <div class="s-top">
+      <div class="s-brand"><img src="../assets/escudo-prime.png" alt="Prime"><span class="nm">PRIME <em>VOLEY</em> CLUB</span></div>
+      <div class="s-pager"><b>02</b> / 03</div>
+    </div>
+    <div class="s-main">
+      <div style="margin-bottom: 56px;">
+        <div class="sec-head">
+          <div class="stripe-trio"><span></span><span></span><span></span></div>
+          <div class="eyebrow">Tu membresía incluye</div>
+          <h2 class="sec-title"><span class="n">01</span>Qué recibes</h2>
+        </div>
+        <div class="value-grid">
+          <div class="value-card">
+            <div class="vc-ico"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-4 3 3 4-6"/></svg></div>
+            <h3>Metodología profesional</h3>
+            <p>Formación con visión a largo plazo. Tu nivel sube con un plan, con una metodología clara.</p>
+          </div>
+          <div class="value-card">
+            <div class="vc-ico"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 15l3-3 2 2 5-5"/></svg></div>
+            <h3>Dashboard de progreso</h3>
+            <p>Tus métricas reales, sesión a sesión. Tu progreso se mide con datos objetivos.</p>
+          </div>
+          <div class="value-card">
+            <div class="vc-ico"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 5 5.6.6-4 4 1 5.4L12 19l-5 3 1-5.4-4-4 5.6-.6z"/></svg></div>
+            <h3>Progreso gamificado</h3>
+            <p>Cada avance se hace visible y tangible. Entrenar se siente como subir de nivel.</p>
+          </div>
+          <div class="value-card">
+            <div class="vc-ico"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M3 20c0-3.3 2.7-5 6-5s6 1.7 6 5"/><path d="M15.5 20c0-2.2 1.3-3.5 3.2-3.5s2.3 1 2.3 3.5"/></svg></div>
+            <h3>Comunidad que pertenece</h3>
+            <p>Un equipo y un tejido social. Aquí perteneces a una comunidad, y haces crecer a la comunidad.</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sec-head">
+          <div class="stripe-trio"><span></span><span></span><span></span></div>
+          <div class="eyebrow">Dónde y cuándo entrenamos</div>
+          <h2 class="sec-title"><span class="n">02</span>Entrenamientos</h2>
+        </div>
+        <div class="train-grid">
+          <div class="train-card">
+            <div class="train-days">Lunes</div>
+            <div class="train-place">Villas del Rosario</div>
+            <div class="train-time">6:45 <span>–</span> 9:00 <span>pm</span></div>
+          </div>
+          <div class="train-card">
+            <div class="train-days">Miér &amp; Vier</div>
+            <div class="train-place">Comuneros 2</div>
+            <div class="train-time">7:00 <span>–</span> 9:00 <span>pm</span></div>
+          </div>
+        </div>
+        <div class="train-foot"><b>3 entrenamientos por semana</b><span class="dot"></span>12 sesiones al mes<span class="dot"></span>Niños desde 8 años y adultos</div>
+      </div>
+    </div>
+    <div class="s-foot"><span>Prime Voley Club · Zipaquirá</span><span class="swipe">Desliza → planes y pagos</span></div>
+  </section>
+
+  <!-- ══════════════ SLIDE 3 — PRECIOS + PAGOS + FAQ ══════════════ -->
+  <section class="slide" id="s3" data-screen-label="03">
+    <div class="s-top">
+      <div class="s-brand"><img src="../assets/escudo-prime.png" alt="Prime"><span class="nm">PRIME <em>VOLEY</em> CLUB</span></div>
+      <div class="s-pager"><b>03</b> / 03</div>
+    </div>
+    <div class="s-main">
+      <div style="margin-bottom: 18px;">
+        <div class="sec-head">
+          <div class="stripe-trio"><span></span><span></span><span></span></div>
+          <div class="eyebrow">Cuánto vale pertenecer</div>
+          <h2 class="sec-title"><span class="n">03</span>Planes y precios</h2>
+        </div>
+        <div class="insc">
+          <div class="insc-l">
+            <div class="k">Inscripción</div>
+            <div class="s">Incluye tu camiseta oficial del club · se paga una sola vez</div>
+          </div>
+          <div class="insc-r"><div class="price">$100.000</div><div class="once">Pago único</div></div>
+        </div>
+        <div class="plans">
+          <div class="plan feature">
+            <div class="plan-top"><span class="plan-name">Mensual</span></div>
+            <div class="plan-price">$90.000</div>
+            <div class="plan-cycle">por mes · 12 sesiones · plan principal</div>
+          </div>
+          <div class="plan">
+            <div class="plan-top"><span class="plan-name">Semestral</span></div>
+            <div class="plan-price">$480.000</div>
+            <div class="plan-cycle">pago único · $80.000/mes · ahorra 11%</div>
+          </div>
+          <div class="plan">
+            <div class="plan-top"><span class="plan-name">Anual</span></div>
+            <div class="plan-price">$900.000</div>
+            <div class="plan-cycle">pago único · $75.000/mes · ahorra 17%</div>
+          </div>
+          <div class="plan">
+            <div class="plan-top"><span class="plan-name">Sesión</span></div>
+            <div class="plan-price">$25.000</div>
+            <div class="plan-cycle">por sesión · solo invitados</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 18px;">
+        <div class="sec-head">
+          <div class="stripe-trio"><span></span><span></span><span></span></div>
+          <div class="eyebrow">Cómo y cuándo se paga</div>
+          <h2 class="sec-title"><span class="n">04</span>Pagos</h2>
+        </div>
+        <div class="pay-wrap">
+          <div class="pay-when">
+            <div class="pay-step"><div class="pay-day">1</div><div><div class="t">Cobro el día 1 de cada mes</div><div class="d">La mensualidad se paga al iniciar el mes.</div></div></div>
+            <div class="pay-step"><div class="pay-day">5</div><div><div class="t">Gracia hasta el día 5</div><div class="d">Tienes hasta el día 5 para ponerte al día.</div></div></div>
+            <div class="pay-step"><div class="pay-day warn">!</div><div><div class="t">Después del día 5: suspensión</div><div class="d">Sin pago se suspende el acceso hasta regularizar.</div></div></div>
+          </div>
+          <div class="pay-how">
+            <h3>Medios de pago</h3>
+            <div class="pay-method"><span class="m">Nequi</span><span class="fill"></span><span class="v">@301 639 9532</span></div>
+            <div class="pay-method"><span class="m">Daviplata</span><span class="fill"></span><span class="v">301 639 9532</span></div>
+            <div class="pay-method"><span class="m">Transferencia (llave)</span><span class="fill"></span><span class="v">0091965460</span></div>
+            <div class="pay-method"><span class="m">Efectivo</span><span class="fill"></span><span class="v">Con comprobante</span></div>
+            <p class="pay-note">Todo pago en efectivo y digital se entrega siempre con recibo.</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sec-head">
+          <div class="stripe-trio"><span></span><span></span><span></span></div>
+          <div class="eyebrow">Lo que más preguntan</div>
+          <h2 class="sec-title"><span class="n">05</span>Preguntas frecuentes</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q"><span class="qm">P.</span>¿Qué incluye la mensualidad?</div>
+            <div class="faq-a">12 sesiones al mes, 3 entrenamientos por semana, dashboard de progreso y comunidad.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q"><span class="qm">P.</span>¿La inscripción es una sola vez?</div>
+            <div class="faq-a">Sí. Un único pago de <b>$100.000</b> que incluye tu camiseta oficial.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q"><span class="qm">P.</span>¿Desde qué edad se entrena?</div>
+            <div class="faq-a">Niños desde los <b>8 años</b> y adultos de cualquier edad.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q"><span class="qm">P.</span>¿Y si no pago a tiempo?</div>
+            <div class="faq-a">Cobro el día 1, gracia hasta el 5. Después se suspende hasta regularizar.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q"><span class="qm">P.</span>¿Hay descuento adelantado?</div>
+            <div class="faq-a">Sí: Semestral a $80.000/mes (-11%) y Anual a $75.000/mes (-17%). Mes gratis por referido. </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q"><span class="qm">P.</span>¿Puedo ir a una sola sesión?</div>
+            <div class="faq-a">La sesión suelta ($25.000) es solo para visitantes e invitados.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="s-foot"><span>Prime Voley Club · Zipaquirá · 2026</span><span class="swipe">Inscripciones &amp; pagos · 301 639 9532</span></div>
+  </section>
+
+</div>
+</div>
+
+<script>
+  (function () {
+    var deck = document.querySelector('.deck');
+    var stage = document.querySelector('.stage');
+    function fit() {
+      var vw = document.documentElement.clientWidth;
+      var s = Math.min(1, vw / 1080);
+      deck.style.transform = 'scale(' + s + ')';
+      deck.style.transformOrigin = 'top left';
+      deck.style.marginLeft = ((vw - 1080 * s) / 2) + 'px';
+      stage.style.height = (deck.offsetHeight * s) + 'px';
+    }
+    fit();
+    window.addEventListener('resize', fit);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+    window.addEventListener('load', fit);
+  })();
+</script>
+</body>
+</html>

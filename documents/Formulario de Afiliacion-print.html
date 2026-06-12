@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Brand" name="Formulario de Afiliación" -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formulario de Afiliación — Club Deportivo Prime</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700;800;900&display=swap');
+
+:root {
+  --ink:        #1A1A20;
+  --ink-mid:    #4A4A54;
+  --paper:      #FAFAF6;
+  --cream:      #F3EFE3;
+  --gold:       #C9A84C;
+  --gold-deep:  #9E8338;
+  --carbon:     #15161C;
+  --purple:     #4C3B9A;
+  --line:       #B9B3A6;
+  --sans:       'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --display:    'Barlow Condensed', 'Arial Narrow', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { background: #C8C3BB; }
+
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 36px 16px 60px;
+}
+
+/* ── A4 PAGE ── */
+.page {
+  width: 210mm;
+  height: 297mm;
+  background: var(--paper);
+  box-shadow: 0 6px 40px rgba(0,0,0,0.28), 0 1px 3px rgba(0,0,0,0.14);
+  padding: 11mm 12mm 9mm;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── HEADER ── */
+.fm-header {
+  background: var(--carbon);
+  margin: -11mm -12mm 0;
+  padding: 10px 12mm 11px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+}
+.fm-header::after {
+  content: '';
+  position: absolute; left: 0; right: 0; bottom: 0; height: 3px;
+  background: linear-gradient(90deg, var(--gold-deep), var(--gold) 50%, var(--gold-deep));
+}
+.fm-iso { flex-shrink: 0; }
+.fm-head-text { flex: 1; }
+.fm-club {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #F2F2F2;
+  line-height: 1;
+}
+.fm-club em { color: var(--gold); font-style: normal; }
+.fm-title {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 25px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold);
+  line-height: 1;
+  margin-top: 4px;
+}
+.fm-meta {
+  text-align: right;
+  flex-shrink: 0;
+  align-self: flex-start;
+  padding-top: 2px;
+}
+.fm-meta .no {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(242,242,242,0.92);
+  white-space: nowrap;
+}
+.fm-meta .loc {
+  font-size: 8.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(242,242,242,0.5);
+  margin-top: 4px;
+  white-space: nowrap;
+}
+
+/* ── BODY ── */
+.fm-body { flex: 1; min-height: 0; padding-top: 9px; }
+
+/* ── SECTION ── */
+.sec { margin-top: 9px; }
+.sec:first-child { margin-top: 3px; }
+.sec-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.sec-num {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--gold-deep);
+  padding: 2px 7px;
+  white-space: nowrap;
+}
+.sec-title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 11.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  white-space: nowrap;
+}
+.sec-rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold) 0%, rgba(201,168,76,0.2) 100%);
+}
+
+/* ── FIELDS ── */
+.row {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 7px;
+}
+.row:last-child { margin-bottom: 0; }
+.field { display: flex; align-items: baseline; gap: 9px; flex: 1; min-width: 0; }
+.field.grow2 { flex: 2; }
+.field.grow3 { flex: 3; }
+.lbl {
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  color: var(--ink-mid);
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.fill {
+  flex: 1;
+  min-width: 0;
+  border-bottom: 1px solid var(--line);
+  height: 14px;
+}
+.fill.short { flex: 0 0 70px; }
+
+/* ── CHECKBOXES ── */
+.opts { display: flex; align-items: baseline; gap: 13px; flex-wrap: wrap; }
+.chk-group { display: flex; align-items: center; gap: 13px; flex-wrap: wrap; }
+.chk {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 9.5px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.chk::before {
+  content: '';
+  width: 10px; height: 10px;
+  border: 1px solid var(--carbon);
+  flex-shrink: 0;
+  display: inline-block;
+}
+.inline-opts { display: flex; align-items: baseline; gap: 13px; flex-wrap: wrap; flex: 1; }
+
+/* ── EXONERATION (section 6) ── */
+.legal { margin-top: 4px; }
+.legal p {
+  font-size: 9px;
+  line-height: 1.5;
+  text-align: justify;
+  color: var(--ink);
+  margin-bottom: 5px;
+}
+.legal ol {
+  margin: 0 0 5px;
+  padding-left: 16px;
+}
+.legal ol li {
+  font-size: 9px;
+  line-height: 1.45;
+  text-align: justify;
+  color: var(--ink);
+  margin-bottom: 3px;
+  padding-left: 2px;
+}
+.legal ol li::marker { color: var(--gold-deep); font-weight: 700; }
+.legal .note { font-size: 9px; font-style: italic; color: var(--ink-mid); margin-bottom: 0; }
+
+/* docs adjuntos as 2-col checklist */
+.checklist { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 18px; margin-top: 2px; }
+.checklist .chk { font-size: 9.5px; }
+
+/* ── DECLARATION + FIRMA (soft bg) ── */
+.declar {
+  background: var(--cream);
+  border: 1px solid rgba(201,168,76,0.4);
+  border-left: 3px solid var(--gold);
+  padding: 9px 12px 10px;
+  margin-top: 4px;
+}
+.declar p { font-size: 9px; line-height: 1.5; text-align: justify; color: var(--ink); margin-bottom: 7px; }
+.declar .minor-intro { font-size: 9px; font-weight: 600; color: var(--gold-deep); text-transform: uppercase; letter-spacing: 0.08em; margin: 6px 0 4px; }
+.declar .minor-text { font-style: italic; }
+
+/* ── INTERNAL USE (dark) ── */
+.internal {
+  background: var(--carbon);
+  margin: 9px -12mm -9mm;
+  padding: 9px 12mm 11px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.internal .it-label {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  white-space: normal;
+  flex-shrink: 0;
+  width: 86px;
+  line-height: 1.25;
+}
+.internal .it-field { display: flex; align-items: baseline; gap: 6px; flex: 1; min-width: 0; }
+.internal .it-lbl { font-size: 8.5px; letter-spacing: 0.04em; text-transform: uppercase; color: rgba(242,242,242,0.6); white-space: nowrap; }
+.internal .it-fill { flex: 1; border-bottom: 1px solid rgba(201,168,76,0.5); height: 14px; }
+
+/* signature inline */
+.sig-row { display: flex; align-items: flex-end; gap: 24px; margin-top: 8px; }
+.sig-row .field .lbl { font-weight: 600; color: var(--ink); }
+
+@media print {
+  @page { size: A4; margin: 0; }
+  html, body { background: white !important; padding: 0 !important; margin: 0 !important; display: block !important; }
+  .page {
+    box-shadow: none !important;
+    margin: 0 !important;
+    width: 210mm !important;
+    height: 297mm !important;
+  }
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+</style>
+</head>
+<body>
+<script>
+  function __doPrint(){ setTimeout(function(){ window.print(); }, 500); }
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function(){ window.addEventListener('load', __doPrint); });
+  } else {
+    window.addEventListener('load', __doPrint);
+  }
+</script>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="fm-header">
+    <div class="fm-iso"><svg width="44" height="44" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="#C9A84C" stroke-width="2.6" fill="none" stroke-linecap="round">
+        <path d="M 30.6 87.0 A 34 34 0 0 1 50.6 37.3"/>
+        <path d="M 69.4 37.3 A 34 34 0 0 1 89.4 87.0"/>
+      </g>
+      <g fill="#C9A84C">
+        <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(49.3 40.6) rotate(-42.0)"/>
+        <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(38.3 47.5) rotate(-66.0)"/>
+        <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(31.0 58.3) rotate(-90.0)"/>
+        <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(28.7 71.1) rotate(-114.0)"/>
+        <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(31.9 83.7) rotate(-138.0)"/>
+        <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(70.7 40.6) rotate(42.0)"/>
+        <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(81.7 47.5) rotate(66.0)"/>
+        <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(89.0 58.3) rotate(90.0)"/>
+        <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(91.3 71.1) rotate(114.0)"/>
+        <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(88.1 83.7) rotate(138.0)"/>
+      </g>
+      <g transform="translate(0,13)">
+        <path d="M60 24 C 52 36, 48 44, 51 54 C 45 52, 43 46, 43 46 C 40 56, 48 70, 60 70 C 72 70, 78 58, 74 47 C 72 40, 64 36, 60 24 Z" fill="#C9A84C"/>
+        <path d="M60 40 C 56 48, 55 56, 60 63 C 66 57, 65 47, 60 40 Z" fill="#4C3B9A"/>
+      </g>
+    </svg></div>
+    <div class="fm-head-text">
+      <div class="fm-club">Club Deportivo <em>Prime</em></div>
+      <div class="fm-title">Formulario de Afiliación</div>
+    </div>
+    <div class="fm-meta">
+      <div class="no">No. _________</div>
+      <div class="loc">Zipaquirá, Cundinamarca</div>
+    </div>
+  </div>
+
+  <div class="fm-body">
+
+    <!-- SECCIÓN 1 -->
+    <div class="sec">
+      <div class="sec-head"><span class="sec-num">Sec 1</span><span class="sec-title">Datos Personales</span><span class="sec-rule"></span></div>
+      <div class="row"><div class="field"><span class="lbl">Nombres y apellidos completos</span><span class="fill"></span></div></div>
+      <div class="row">
+        <div class="field grow2"><span class="lbl">Tipo de documento</span><span class="inline-opts"><span class="chk">CC</span><span class="chk">TI</span><span class="chk">CE</span><span class="chk">Pasaporte</span></span></div>
+        <div class="field"><span class="lbl">Número</span><span class="fill"></span></div>
+      </div>
+      <div class="row">
+        <div class="field"><span class="lbl">Fecha de nacimiento</span><span class="fill"></span></div>
+        <div class="field grow2"><span class="lbl">Lugar de nacimiento</span><span class="fill"></span></div>
+      </div>
+      <div class="row"><div class="field"><span class="lbl">Dirección de residencia</span><span class="fill"></span></div></div>
+      <div class="row">
+        <div class="field"><span class="lbl">Municipio</span><span class="fill"></span></div>
+        <div class="field"><span class="lbl">Teléfono / WhatsApp</span><span class="fill"></span></div>
+      </div>
+      <div class="row"><div class="field grow2"><span class="lbl">Correo electrónico</span><span class="fill"></span></div></div>
+      <div class="row"><div class="field"><span class="lbl">Talla de camiseta</span><span class="inline-opts"><span class="chk">XS</span><span class="chk">S</span><span class="chk">M</span><span class="chk">L</span><span class="chk">XL</span><span class="chk">XXL</span></span></div></div>
+    </div>
+
+    <!-- SECCIÓN 2 -->
+    <div class="sec">
+      <div class="sec-head"><span class="sec-num">Sec 2</span><span class="sec-title">Datos Deportivos</span><span class="sec-rule"></span></div>
+      <div class="row"><div class="field"><span class="lbl">Modalidad</span><span class="inline-opts"><span class="chk">Masculino adulto</span><span class="chk">Femenino adulto</span><span class="chk">Mixto</span><span class="chk">Infantil</span></span></div></div>
+      <div class="row"><div class="field"><span class="lbl">Posición</span><span class="inline-opts"><span class="chk">Líbero</span><span class="chk">Armador(a)</span><span class="chk">Opuesto(a)</span><span class="chk">Central</span><span class="chk">Auxiliar</span><span class="chk">Ninguna aún</span></span></div></div>
+      <div class="row"><div class="field"><span class="lbl">Experiencia previa</span><span class="inline-opts"><span class="chk">Ninguna</span><span class="chk">Recreativo</span><span class="chk">Escolar</span><span class="chk">Competitivo</span></span></div></div>
+      <div class="row"><div class="field"><span class="lbl">Club anterior (si aplica)</span><span class="fill"></span></div></div>
+    </div>
+
+    <!-- SECCIÓN 3 -->
+    <div class="sec">
+      <div class="sec-head"><span class="sec-num">Sec 3</span><span class="sec-title">Plan de Membresía</span><span class="sec-rule"></span></div>
+      <div class="row"><div class="field"><span class="inline-opts"><span class="chk">Mensual — $90.000/mes</span><span class="chk">Semestral — $480.000 </span><span class="chk">Anual — $900.000 </span></span></div></div>
+      <div class="row">
+        <div class="field"><span class="lbl">Fecha de inscripción</span><span class="fill"></span></div>
+        <div class="field"><span class="lbl">Valor pagado</span><span class="fill"></span></div>
+      </div>
+      <div class="row"><div class="field"><span class="lbl">Método de pago</span><span class="inline-opts"><span class="chk">Nequi</span><span class="chk">Daviplata</span><span class="chk">Transferencia</span><span class="chk">Efectivo</span></span></div></div>
+    </div>
+
+    <!-- SECCIÓN 4 -->
+    <div class="sec">
+      <div class="sec-head"><span class="sec-num">Sec 4</span><span class="sec-title">Contacto de Emergencia</span><span class="sec-rule"></span></div>
+      <div class="row">
+        <div class="field grow2"><span class="lbl">Nombre</span><span class="fill"></span></div>
+        <div class="field"><span class="lbl">Parentesco</span><span class="fill"></span></div>
+      </div>
+      <div class="row"><div class="field"><span class="lbl">Teléfono</span><span class="fill"></span></div></div>
+    </div>
+
+    <!-- SECCIÓN 5 -->
+    <div class="sec">
+      <div class="sec-head"><span class="sec-num">Sec 5</span><span class="sec-title">Documentos Adjuntos</span><span class="sec-rule"></span></div>
+      <div class="checklist">
+        <span class="chk">Copia del documento de identidad</span>
+        <span class="chk">Certificado de afiliación a EPS vigente</span>
+        <span class="chk">Certificado médico de aptitud físico-deportiva</span>
+        <span class="chk">Autorización de transferencia del club anterior (si aplica)</span>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 6 -->
+    <div class="sec">
+      <div class="sec-head"><span class="sec-num">Sec 6</span><span class="sec-title">Exoneración de Responsabilidad y Consentimiento Deportivo</span><span class="sec-rule"></span></div>
+      <div class="legal">
+        <p>El suscrito, en pleno uso de sus facultades, declara conocer y aceptar que la práctica del voleibol es una actividad física de contacto que conlleva riesgos inherentes de lesión. En consecuencia:</p>
+        <ol>
+          <li>Exonera expresamente al Club Deportivo Prime, a sus directivos, entrenadores y demás personal, de toda responsabilidad civil por lesiones, accidentes o daños físicos que pudieran ocurrir durante la práctica deportiva, entrenamientos, competencias o eventos organizados por el Club, siempre que estos no sean producto de negligencia grave o dolo comprobados.</li>
+          <li>Declara encontrarse en buen estado de salud y apto(a) para la práctica del voleibol, contando con certificado médico vigente que así lo acredita.</li>
+          <li>Se compromete a informar oportunamente al entrenador sobre cualquier condición médica, lesión preexistente o limitación física que pudiera afectar su desempeño o seguridad.</li>
+          <li>Autoriza al Club a prestar primeros auxilios básicos en caso de emergencia y a contactar los servicios médicos que considere necesarios, asumiendo el afiliado o su representante legal los costos médicos derivados.</li>
+        </ol>
+        <p class="note">En caso de menores de edad, esta sección debe ser firmada obligatoriamente por el representante legal.</p>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 7 -->
+    <div class="sec">
+      <div class="sec-head"><span class="sec-num">Sec 7</span><span class="sec-title">Declaración Final y Firma</span><span class="sec-rule"></span></div>
+      <div class="declar">
+        <p>El suscrito declara que toda la información suministrada es verídica, que ha leído y acepta en su totalidad los Estatutos Sociales del Club Deportivo Prime, y que se compromete a cumplir con las normas de la Ley 181 de 1995, el Decreto Ley 1228 de 1995 y las Normas Antidopaje vigentes. Autoriza al Club el tratamiento de sus datos personales para fines deportivos y administrativos conforme a la Ley 1581 de 2012.</p>
+        <div class="sig-row">
+          <div class="field grow2"><span class="lbl">Firma del deportista</span><span class="fill"></span></div>
+          <div class="field"><span class="lbl">Fecha</span><span class="fill"></span></div>
+        </div>
+        <div class="minor-intro">Solo para menores de edad</div>
+        <p class="minor-text">Yo, <span style="display:inline-block;min-width:180px;border-bottom:1px solid var(--line);"></span>, identificado(a) con C.C. <span style="display:inline-block;min-width:90px;border-bottom:1px solid var(--line);"></span>, en calidad de representante legal del menor, autorizo su afiliación al Club Deportivo Prime, acepto los términos de la exoneración de responsabilidad de la Sección 6 y me comprometo a cumplir con las condiciones establecidas en los Estatutos.</p>
+        <div class="sig-row">
+          <div class="field grow2"><span class="lbl">Firma del representante legal</span><span class="fill"></span></div>
+          <div class="field"><span class="lbl">Parentesco</span><span class="fill"></span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- INTERNAL USE -->
+  <div class="internal">
+    <div class="it-label">Uso interno — no diligenciar</div>
+    <div class="it-field"><span class="it-lbl">No. de afiliado</span><span class="it-fill"></span></div>
+    <div class="it-field"><span class="it-lbl">Fecha de activación</span><span class="it-fill"></span></div>
+    <div class="it-field"><span class="it-lbl">Recibido por</span><span class="it-fill"></span></div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Brand" name="Form inputs" subtitle="Default + purple focus ring" viewport="700x230" --><html><head><meta charset="UTF-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+ html,body{margin:0}
+ body{background:var(--carbon-800);font-family:var(--font-body);padding:22px;display:flex;flex-direction:column;gap:14px;max-width:420px}
+ .lab{font:700 11px/1 var(--font-body);letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin:0}
+ label{font:600 11px/1 var(--font-body);letter-spacing:0.1em;text-transform:uppercase;color:rgba(242,242,242,0.6);display:block;margin-bottom:7px}
+ .f{margin-bottom:4px}
+ input{width:100%;box-sizing:border-box;background:var(--carbon-900);border:1px solid var(--carbon-500);border-radius:3px;padding:12px 14px;color:#F2F2F2;font:400 15px var(--font-body)}
+ input::placeholder{color:rgba(242,242,242,0.35)}
+ input.focus{border-color:var(--purple-bright);box-shadow:0 0 0 2px #15161C,0 0 0 4px var(--purple-bright);outline:none}
+ .hint{font:11px var(--font-body);color:rgba(242,242,242,0.4);margin-top:5px}
+</style></head>
+<body>
+ <p class="lab">Form inputs</p>
+ <div class="f"><label>Nombre del jugador</label><input value="Daniel Rojas"></div>
+ <div class="f"><label>Correo · focus</label><input class="focus" placeholder="tu@correo.com"><div class="hint">Anillo de foco morado — precisión.</div></div>
+</body></html>

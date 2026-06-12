@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Brand" name="Resumen Reunión — Prime" subtitle="Póster vertical: valor, horarios, precios, pagos, FAQ" -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prime Voley Club — Temporada 2026</title>
+<link rel="stylesheet" href="colors_and_type.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: #06070A; }
+  body {
+    font-family: var(--font-body);
+    background: #06070A;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .stage { width: 100%; overflow: hidden; }
+
+  /* ── POSTER CANVAS — fixed 1080 wide, scaled to viewport ── */
+  .poster {
+    width: 1080px;
+    margin: 0 auto;
+    background: var(--carbon-800);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* thin purple pinstripe edge frame */
+  .poster::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: var(--pinstripe);
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  section { position: relative; z-index: 1; }
+
+  /* gold stripe trio divider */
+  .stripe-trio { display: flex; gap: 6px; }
+  .stripe-trio span { display: block; width: 46px; height: 5px; background: var(--gold); }
+  .stripe-trio span:nth-child(2) { opacity: 0.66; }
+  .stripe-trio span:nth-child(3) { opacity: 0.33; }
+
+  .eyebrow {
+    font: var(--eyebrow);
+    font-size: 16px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ════════ HERO ════════ */
+  .hero {
+    padding: 72px 80px 64px;
+    background:
+      radial-gradient(120% 80% at 50% -10%, rgba(76,59,154,0.28), transparent 60%),
+      linear-gradient(180deg, var(--carbon-900), var(--carbon-800));
+    border-bottom: 2px solid var(--gold);
+    text-align: center;
+  }
+  .hero-iso { margin: 0 auto 26px; width: 132px; height: 132px; display: block; }
+  .hero-club {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 30px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+  .hero-club em { color: var(--gold); font-style: normal; }
+  .hero-sede {
+    font-size: 14px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--white-faint);
+    margin-top: 8px;
+  }
+  .hero-divide { width: 64px; height: 2px; background: var(--gold); margin: 30px auto; }
+  .hero-eyebrow { margin-bottom: 20px; }
+  .hero-headline {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 62px;
+    line-height: 1.04;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+    color: var(--white);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .hero-headline b { color: var(--gold); }
+  .hero-conviction {
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--white-dim);
+    max-width: 760px;
+    margin: 40px auto 0;
+    text-wrap: pretty;
+  }
+
+  /* ════════ SECTION SHELL ════════ */
+  .sec { padding: 64px 80px; border-bottom: 1px solid var(--carbon-500); }
+  .sec-head { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
+  .sec-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 50px;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+  .sec-title .n { color: var(--gold); margin-right: 14px; }
+
+  /* ════════ VALUE / QUÉ RECIBES ════════ */
+  .value-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .value-card {
+    background: var(--carbon-700);
+    border: 1px solid var(--carbon-500);
+    border-left: 3px solid var(--gold);
+    padding: 26px 28px;
+  }
+  .value-card .vc-ico {
+    width: 42px; height: 42px; margin-bottom: 16px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold);
+  }
+  .value-card h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .value-card p { font-size: 16px; line-height: 1.55; color: var(--white-dim); }
+
+  /* ════════ ENTRENAMIENTOS ════════ */
+  .train-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .train-card {
+    background: linear-gradient(180deg, var(--carbon-700), var(--carbon-800));
+    border: 1px solid var(--carbon-500);
+    padding: 30px 30px 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .train-card::after {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: var(--gold-stripes);
+    opacity: 0.85;
+  }
+  .train-days {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 34px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .train-place {
+    font-size: 18px;
+    color: var(--white);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  .train-time {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 40px;
+    letter-spacing: 0.01em;
+    color: var(--white);
+    font-variant-numeric: tabular-nums;
+  }
+  .train-time span { font-size: 22px; color: var(--white-faint); }
+  .train-foot {
+    margin-top: 26px;
+    display: flex; align-items: center; gap: 14px;
+    font-size: 17px; color: var(--white-dim);
+  }
+  .train-foot b { color: var(--gold); font-weight: 700; }
+  .train-foot .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--carbon-400); }
+
+  /* ════════ PRECIOS ════════ */
+  .insc {
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    background: var(--carbon-900);
+    border: 1px solid var(--gold-deep);
+    padding: 24px 30px;
+    margin-bottom: 22px;
+  }
+  .insc-l .k {
+    font-family: var(--font-display); font-weight: 800; font-size: 24px;
+    letter-spacing: 0.04em; text-transform: uppercase; color: var(--white);
+  }
+  .insc-l .s { font-size: 15px; color: var(--white-dim); margin-top: 3px; }
+  .insc-r { text-align: right; white-space: nowrap; }
+  .insc-r .price {
+    font-family: var(--font-display); font-weight: 900; font-size: 40px;
+    color: var(--gold); font-variant-numeric: tabular-nums;
+  }
+  .insc-r .once { font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white-faint); }
+
+  .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .plan {
+    background: var(--carbon-700);
+    border: 1px solid var(--carbon-500);
+    padding: 26px 28px;
+    display: flex; flex-direction: column;
+  }
+  .plan.feature {
+    border: 1.5px solid var(--gold);
+    box-shadow: var(--glow-gold);
+    background: linear-gradient(180deg, var(--carbon-700), var(--carbon-800));
+  }
+  .plan.span2 { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: space-between; }
+  .plan-top { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+  .plan-name {
+    font-family: var(--font-display); font-weight: 800; font-size: 26px;
+    letter-spacing: 0.03em; text-transform: uppercase; color: var(--white); white-space: nowrap;
+  }
+  .plan-tag {
+    font: var(--eyebrow); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; white-space: nowrap;
+    color: var(--carbon-900); background: var(--gold); padding: 4px 9px; border-radius: var(--r-sm);
+  }
+  .plan-tag.ghost { background: transparent; color: var(--white-faint); border: 1px solid var(--carbon-400); }
+  .plan-price {
+    font-family: var(--font-display); font-weight: 900; font-size: 48px; line-height: 1;
+    color: var(--white); font-variant-numeric: tabular-nums;
+  }
+  .plan.feature .plan-price { color: var(--gold); }
+  .plan-cycle { font-size: 15px; color: var(--white-faint); margin-top: 4px; }
+  .plan-equiv {
+    margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--carbon-500);
+    font-size: 15px; color: var(--white-dim);
+  }
+  .plan-equiv b { color: var(--gold-bright); font-weight: 700; }
+  .plan.span2 .plan-equiv { margin: 0; padding: 0; border: 0; max-width: 360px; text-align: right; }
+  .plan-note { font-size: 15px; color: var(--white-dim); }
+
+  .price-foot {
+    margin-top: 22px; font-size: 16px; line-height: 1.5; color: var(--white-dim);
+    border-left: 3px solid var(--purple); padding: 4px 0 4px 18px;
+  }
+  .price-foot b { color: var(--white); }
+
+  /* ════════ PAGOS ════════ */
+  .pay-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .pay-when {
+    background: var(--carbon-700); border: 1px solid var(--carbon-500); padding: 30px;
+  }
+  .pay-step { display: flex; gap: 16px; padding: 14px 0; }
+  .pay-step:not(:last-child) { border-bottom: 1px solid var(--carbon-500); }
+  .pay-day {
+    flex-shrink: 0; width: 54px; height: 54px; border-radius: var(--r-md);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 900; font-size: 26px;
+    background: var(--carbon-900); color: var(--gold); border: 1px solid var(--gold-deep);
+  }
+  .pay-day.warn { color: var(--carbon-900); background: var(--gold); border-color: var(--gold); }
+  .pay-step .t { font-weight: 700; font-size: 17px; color: var(--white); margin-bottom: 3px; }
+  .pay-step .d { font-size: 15px; color: var(--white-dim); line-height: 1.45; }
+
+  .pay-how { background: var(--carbon-700); border: 1px solid var(--carbon-500); padding: 30px; }
+  .pay-how h3 {
+    font-family: var(--font-display); font-weight: 700; font-size: 22px;
+    letter-spacing: 0.02em; text-transform: uppercase; color: var(--white); margin-bottom: 18px;
+  }
+  .pay-method { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 13px 0; border-bottom: 1px dashed var(--carbon-500); }
+  .pay-method:last-of-type { border-bottom: 0; }
+  .pay-method .m { font-weight: 700; font-size: 17px; color: var(--white); }
+  .pay-method .fill {
+    flex: 1; border-bottom: 1.5px dotted var(--gold-deep); margin: 0 4px 5px;
+    min-width: 80px; height: 1px;
+  }
+  .pay-method .v { font-size: 15px; color: var(--white-faint); font-variant-numeric: tabular-nums; }
+  .pay-note { margin-top: 16px; font-size: 14px; color: var(--white-faint); line-height: 1.5; }
+
+  /* ════════ FAQ ════════ */
+  .faq-list { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 24px; }
+  .faq-item { padding: 4px 0; }
+  .faq-q {
+    display: flex; gap: 10px;
+    font-family: var(--font-display); font-weight: 700; font-size: 21px;
+    letter-spacing: 0.01em; text-transform: uppercase; color: var(--white); margin-bottom: 7px;
+  }
+  .faq-q .qm { color: var(--gold); }
+  .faq-a { font-size: 16px; line-height: 1.55; color: var(--white-dim); padding-left: 24px; }
+  .faq-a b { color: var(--white); }
+
+  /* ════════ FOOTER ════════ */
+  .foot {
+    padding: 48px 80px 56px;
+    background: var(--carbon-900);
+    border-top: 2px solid var(--gold);
+    display: flex; align-items: center; justify-content: space-between; gap: 30px;
+  }
+  .foot-l { display: flex; align-items: center; gap: 20px; }
+  .foot-iso { width: 58px; height: 58px; }
+  .foot-name {
+    font-family: var(--font-display); font-weight: 900; font-size: 24px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--white);
+  }
+  .foot-name em { color: var(--gold); font-style: normal; }
+  .foot-tag { font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white-faint); margin-top: 3px; }
+  .foot-r { text-align: right; }
+  .foot-r .cta { font-family: var(--font-display); font-weight: 800; font-size: 18px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); }
+  .foot-r .wa { font-size: 16px; color: var(--white-dim); margin-top: 6px; }
+  .foot-r .wa .fill { display: inline-block; min-width: 150px; border-bottom: 1.5px dotted var(--gold-deep); }
+
+  @media print {
+    @page { size: A4 portrait; margin: 0; }
+    html, body { background: white; }
+    .stage { height: auto !important; }
+    .poster { transform: none !important; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  }
+</style>
+</head>
+<body>
+<div class="stage">
+<div class="poster">
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero">
+    <svg class="hero-iso" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="#C9A84C" stroke-width="2.4" fill="none" stroke-linecap="round">
+        <path d="M 30.6 87.0 A 34 34 0 0 1 50.6 37.3"/>
+        <path d="M 69.4 37.3 A 34 34 0 0 1 89.4 87.0"/>
+      </g>
+      <g fill="#C9A84C">
+        <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(49.3 40.6) rotate(-42.0)"/>
+        <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(38.3 47.5) rotate(-66.0)"/>
+        <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(31.0 58.3) rotate(-90.0)"/>
+        <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(28.7 71.1) rotate(-114.0)"/>
+        <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(31.9 83.7) rotate(-138.0)"/>
+        <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(70.7 40.6) rotate(42.0)"/>
+        <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(81.7 47.5) rotate(66.0)"/>
+        <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(89.0 58.3) rotate(90.0)"/>
+        <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(91.3 71.1) rotate(114.0)"/>
+        <path d="M 10.5 0 C 2.10 -3.2, -5.25 -3.2, -10.5 -1.28 C -11.76 -0.38, -11.76 0.38, -10.5 1.28 C -5.25 3.2, 2.10 3.2, 10.5 0 Z" transform="translate(88.1 83.7) rotate(138.0)"/>
+      </g>
+      <g transform="translate(0,13)">
+        <path d="M60 24 C 52 36, 48 44, 51 54 C 45 52, 43 46, 43 46 C 40 56, 48 70, 60 70 C 72 70, 78 58, 74 47 C 72 40, 64 36, 60 24 Z" fill="#C9A84C"/>
+        <path d="M60 40 C 56 48, 55 56, 60 63 C 66 57, 65 47, 60 40 Z" fill="#4C3B9A"/>
+      </g>
+    </svg>
+    <div class="hero-club">PRIME <em>VOLEY</em> CLUB</div>
+    <div class="hero-sede">Club de Voleibol · Zipaquirá</div>
+
+    <div class="hero-divide"></div>
+
+    <div class="hero-eyebrow eyebrow">Temporada 2026 · Lo que acordamos</div>
+    <h1 class="hero-headline">EL PRIMER CLUB<br><b>COMPETITIVO</b><br>DE VOLEIBOL<br>EN ZIPAQUIRÁ</h1>
+    <p class="hero-conviction">Construimos la primera cantera de voleibol profesional de Zipaquirá, con la convicción de que la competencia y la disciplina son el primer bastión para formar seres humanos extraordinarios.</p>
+  </section>
+
+  <!-- ═══════════ QUÉ RECIBES ═══════════ -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="stripe-trio"><span></span><span></span><span></span></div>
+      <div class="eyebrow">Tu membresía incluye</div>
+      <h2 class="sec-title"><span class="n">01</span>Qué recibes</h2>
+    </div>
+    <div class="value-grid">
+      <div class="value-card">
+        <div class="vc-ico">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-4 3 3 4-6"/></svg>
+        </div>
+        <h3>Metodología profesional</h3>
+        <p>Formación con visión a largo plazo. Tu nivel sube con un plan, no por azar.</p>
+      </div>
+      <div class="value-card">
+        <div class="vc-ico">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 15l3-3 2 2 5-5"/></svg>
+        </div>
+        <h3>Dashboard de progreso</h3>
+        <p>Tus métricas reales, sesión a sesión. Ves cómo avanzas con datos reales. Tu progreso se mide con datos obejtivos.</p>
+      </div>
+      <div class="value-card">
+        <div class="vc-ico">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 5 5.6.6-4 4 1 5.4L12 19l-5 3 1-5.4-4-4 5.6-.6z"/></svg>
+        </div>
+        <h3>Progreso gamificado</h3>
+        <p>Cada avance se hace visible y tangible. Entrenar se siente como subir de nivel.</p>
+      </div>
+      <div class="value-card">
+        <div class="vc-ico">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M3 20c0-3.3 2.7-5 6-5s6 1.7 6 5"/><path d="M15.5 20c0-2.2 1.3-3.5 3.2-3.5s2.3 1 2.3 3.5"/></svg>
+        </div>
+        <h3>Comunidad que pertenece</h3>
+        <p>Un equipo y un tejido social donde quedarse vale más que irse. Entrenas con una comunidad. Perteneces a una comunidad.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ ENTRENAMIENTOS ═══════════ -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="stripe-trio"><span></span><span></span><span></span></div>
+      <div class="eyebrow">Dónde y cuándo entrenamos</div>
+      <h2 class="sec-title"><span class="n">02</span>Entrenamientos</h2>
+    </div>
+    <div class="train-grid">
+      <div class="train-card">
+        <div class="train-days">Lunes</div>
+        <div class="train-place">Villas del Rosario</div>
+        <div class="train-time">6:45 <span>–</span> 9:00 <span>pm</span></div>
+      </div>
+      <div class="train-card">
+        <div class="train-days">Miér &amp; Vier</div>
+        <div class="train-place">Comuneros 2</div>
+        <div class="train-time">7:00 <span>–</span> 9:00 <span>pm</span></div>
+      </div>
+    </div>
+    <div class="train-foot">
+      <b>3 entrenamientos por semana</b><span class="dot"></span>12 sesiones al mes<span class="dot"></span>Niños desde 8 años y adultos
+    </div>
+  </section>
+
+  <!-- ═══════════ PRECIOS ═══════════ -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="stripe-trio"><span></span><span></span><span></span></div>
+      <div class="eyebrow">Cuánto vale pertenecer</div>
+      <h2 class="sec-title"><span class="n">03</span>Planes y precios</h2>
+    </div>
+
+    <div class="insc">
+      <div class="insc-l">
+        <div class="k">Inscripción</div>
+        <div class="s">Incluye tu camiseta oficial del club · se paga una sola vez</div>
+      </div>
+      <div class="insc-r">
+        <div class="price">$100.000</div>
+        <div class="once">Pago único</div>
+      </div>
+    </div>
+
+    <div class="plans">
+      <div class="plan feature">
+        <div class="plan-top"><span class="plan-name">Mensual</span><span class="plan-tag">Plan principal</span></div>
+        <div class="plan-price">$90.000</div>
+        <div class="plan-cycle">por mes · 12 sesiones</div>
+        <div class="plan-equiv">El producto core. 3 entrenamientos por semana.</div>
+      </div>
+      <div class="plan">
+        <div class="plan-top"><span class="plan-name">Semestral</span><span class="plan-tag ghost">-11%</span></div>
+        <div class="plan-price">$480.000</div>
+        <div class="plan-cycle">pago único · 6 meses</div>
+        <div class="plan-equiv">Equivale a <b>$80.000/mes</b></div>
+      </div>
+      <div class="plan">
+        <div class="plan-top"><span class="plan-name">Anual</span><span class="plan-tag ghost">-17%</span></div>
+        <div class="plan-price">$900.000</div>
+        <div class="plan-cycle">pago único · 12 meses</div>
+        <div class="plan-equiv">Equivale a <b>$75.000/mes</b> · máximo ahorro</div>
+      </div>
+      <div class="plan">
+        <div class="plan-top"><span class="plan-name">Sesión</span></div>
+        <div class="plan-price">$25.000</div>
+        <div class="plan-cycle">por sesión</div>
+        <div class="plan-equiv">Solo para visitantes e invitados.</div>
+      </div>
+    </div>
+
+    <p class="price-foot">Pagas por <b>la prueba de tu progreso</b>, la metodología y la comunidad. Eso es lo que hace que pertenecer a Prime sea completamente distinto que pertenecer a otro club.</p>
+  </section>
+
+  <!-- ═══════════ PAGOS ═══════════ -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="stripe-trio"><span></span><span></span><span></span></div>
+      <div class="eyebrow">Cómo y cuándo se paga</div>
+      <h2 class="sec-title"><span class="n">04</span>Pagos</h2>
+    </div>
+    <div class="pay-wrap">
+      <div class="pay-when">
+        <div class="pay-step">
+          <div class="pay-day">1</div>
+          <div><div class="t">Cobro el día 1 de cada mes</div><div class="d">La mensualidad se paga al iniciar el mes.</div></div>
+        </div>
+        <div class="pay-step">
+          <div class="pay-day">5</div>
+          <div><div class="t">Período de gracia hasta el día 5</div><div class="d">Tienes hasta el día 5 para ponerte al día sin novedad.</div></div>
+        </div>
+        <div class="pay-step">
+          <div class="pay-day warn">!</div>
+          <div><div class="t">Después del día 5: suspensión</div><div class="d">Sin pago se suspende el acceso hasta regularizar. Sin excepciones.</div></div>
+        </div>
+      </div>
+      <div class="pay-how">
+        <h3>Medios de pago</h3>
+        <div class="pay-method"><span class="m">Nequi</span><span class="fill"></span><span class="v">301 639 9532</span></div>
+        <div class="pay-method"><span class="m">Daviplata</span><span class="fill"></span><span class="v">@301 639 9532</span></div>
+        <div class="pay-method"><span class="m">Transferencia (llave)</span><span class="fill"></span><span class="v">0091965460</span></div>
+        <div class="pay-method"><span class="m">Efectivo</span><span class="fill"></span><span class="v">Con comprobante</span></div>
+        <p class="pay-note">Todo pago en efectivo y digital se entrega siempre con recibo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FAQ ═══════════ -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="stripe-trio"><span></span><span></span><span></span></div>
+      <div class="eyebrow">Lo que más preguntan</div>
+      <h2 class="sec-title"><span class="n">05</span>Preguntas frecuentes</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q"><span class="qm">P.</span>¿Qué incluye la mensualidad?</div>
+        <div class="faq-a">12 sesiones al mes, 3 entrenamientos por semana con metodología profesional, acceso a tu dashboard de progreso y a la comunidad del club.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="qm">P.</span>¿La inscripción se paga una sola vez?</div>
+        <div class="faq-a">Sí. Es un único pago de <b>$100.000</b> que incluye tu camiseta oficial del club.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="qm">P.</span>¿Desde qué edad se puede entrenar?</div>
+        <div class="faq-a">Niños desde los <b>8 años</b> y adultos de cualquier edad que quieran competir y formarse.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="qm">P.</span>¿Qué pasa si no pago a tiempo?</div>
+        <div class="faq-a">El cobro es el día 1, con gracia hasta el día 5. Después del día 5 sin pago se suspende el acceso hasta regularizar.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="qm">P.</span>¿Hay descuento por pagar adelantado?</div>
+        <div class="faq-a">Sí: el plan <b>Semestral</b> equivale a $80.000/mes (-11%) y el <b>Anual</b> a $75.000/mes (-17%).</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="qm">P.</span>¿Puedo ir a una sola sesión?</div>
+        <div class="faq-a">La sesión suelta ($25.000) es solo para visitantes e invitados, no para miembros activos.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <section class="foot">
+    <div class="foot-l">
+      <svg class="foot-iso" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="#C9A84C" stroke-width="2.8" fill="none" stroke-linecap="round">
+          <path d="M 30.0 86.0 A 34 34 0 0 1 48.4 38.1"/>
+          <path d="M 71.6 38.1 A 34 34 0 0 1 90.0 86.0"/>
+        </g>
+        <g fill="#C9A84C">
+          <path d="M 11 0 C 2.20 -3.4, -5.50 -3.4, -11 -1.36 C -12.32 -0.41, -12.32 0.41, -11 1.36 C -5.50 3.4, 2.20 3.4, 11 0 Z" transform="translate(46.3 41.9) rotate(-48.0)"/>
+          <path d="M 11 0 C 2.20 -3.4, -5.50 -3.4, -11 -1.36 C -12.32 -0.41, -12.32 0.41, -11 1.36 C -5.50 3.4, 2.20 3.4, 11 0 Z" transform="translate(34.7 51.6) rotate(-76.0)"/>
+          <path d="M 11 0 C 2.20 -3.4, -5.50 -3.4, -11 -1.36 C -12.32 -0.41, -12.32 0.41, -11 1.36 C -5.50 3.4, 2.20 3.4, 11 0 Z" transform="translate(29.0 65.6) rotate(-104.0)"/>
+          <path d="M 11 0 C 2.20 -3.4, -5.50 -3.4, -11 -1.36 C -12.32 -0.41, -12.32 0.41, -11 1.36 C -5.50 3.4, 2.20 3.4, 11 0 Z" transform="translate(30.6 80.7) rotate(-132.0)"/>
+          <path d="M 11 0 C 2.20 -3.4, -5.50 -3.4, -11 -1.36 C -12.32 -0.41, -12.32 0.41, -11 1.36 C -5.50 3.4, 2.20 3.4, 11 0 Z" transform="translate(73.7 41.9) rotate(48.0)"/>
+          <path d="M 11 0 C 2.20 -3.4, -5.50 -3.4, -11 -1.36 C -12.32 -0.41, -12.32 0.41, -11 1.36 C -5.50 3.4, 2.20 3.4, 11 0 Z" transform="translate(85.3 51.6) rotate(76.0)"/>
+          <path d="M 11 0 C 2.20 -3.4, -5.50 -3.4, -11 -1.36 C -12.32 -0.41, -12.32 0.41, -11 1.36 C -5.50 3.4, 2.20 3.4, 11 0 Z" transform="translate(91.0 65.6) rotate(104.0)"/>
+          <path d="M 11 0 C 2.20 -3.4, -5.50 -3.4, -11 -1.36 C -12.32 -0.41, -12.32 0.41, -11 1.36 C -5.50 3.4, 2.20 3.4, 11 0 Z" transform="translate(89.4 80.7) rotate(132.0)"/>
+        </g>
+        <g transform="translate(0,13)">
+          <path d="M60 24 C 52 36, 48 44, 51 54 C 45 52, 43 46, 43 46 C 40 56, 48 70, 60 70 C 72 70, 78 58, 74 47 C 72 40, 64 36, 60 24 Z" fill="#C9A84C"/>
+          <path d="M60 40 C 56 48, 55 56, 60 63 C 66 57, 65 47, 60 40 Z" fill="#4C3B9A"/>
+        </g>
+      </svg>
+      <div>
+        <div class="foot-name">PRIME <em>VOLEY</em> CLUB</div>
+        <div class="foot-tag">Zipaquirá · Colombia · 2026</div>
+      </div>
+    </div>
+    <div class="foot-r">
+      <div class="cta">Tu lugar en la cancha empieza hoy</div>
+      <div class="wa">Contacto: 301 63</div>
+    </div>
+  </section>
+
+</div>
+</div>
+
+<script>
+  (function () {
+    var poster = document.querySelector('.poster');
+    var stage = document.querySelector('.stage');
+    function fit() {
+      var vw = document.documentElement.clientWidth;
+      var s = Math.min(1, vw / 1080);
+      poster.style.transform = 'scale(' + s + ')';
+      poster.style.transformOrigin = 'top left';
+      poster.style.marginLeft = ((vw - 1080 * s) / 2) + 'px';
+      stage.style.height = (poster.offsetHeight * s) + 'px';
+    }
+    fit();
+    window.addEventListener('resize', fit);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+    window.addEventListener('load', fit);
+  })();
+</script>
+</body>
+</html>

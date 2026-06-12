@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Brand" name="Buttons" subtitle="Primary / secondary / ghost + states" viewport="700x185" --><html><head><meta charset="UTF-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+ html,body{margin:0}
+ body{background:var(--carbon-800);font-family:var(--font-body);padding:22px;display:flex;flex-direction:column;gap:16px}
+ .lab{font:700 11px/1 var(--font-body);letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin:0}
+ .grp{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+
+ /* VNL buttons: clean rounded rects, accent-filled primary, outlined secondary */
+ .btn{font:700 14px/1 var(--font-body);letter-spacing:0.01em;padding:13px 22px;border-radius:8px;
+   border:1.5px solid transparent;cursor:pointer;display:inline-flex;align-items:center;gap:9px}
+ .primary{background:var(--gold);color:#15161C}
+ .secondary{background:transparent;color:#F2F2F2;border-color:var(--carbon-400)}
+ .dark{background:var(--carbon-900);color:#F2F2F2;border-color:var(--carbon-500)}
+ .hover{background:var(--gold-bright);color:#15161C}
+ .press{background:var(--gold-deep);color:#15161C;transform:translateY(1px)}
+ .tag{font:11px var(--font-body);color:var(--white-faint);letter-spacing:0.04em;text-transform:uppercase}
+ .ar{font-weight:800}
+</style></head>
+<body>
+ <p class="lab">Buttons · VNL diagramming</p>
+ <div class="grp">
+  <button class="btn primary">Reserva tu prueba <span class="ar">→</span></button>
+  <button class="btn secondary">Ver roster</button>
+  <button class="btn dark">Iniciar sesión</button>
+ </div>
+ <div class="grp">
+  <span class="tag">states →</span>
+  <button class="btn primary">Default</button>
+  <button class="btn hover">Hover</button>
+  <button class="btn press">Pressed</button>
+ </div>
+</body></html>

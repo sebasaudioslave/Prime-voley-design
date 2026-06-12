@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Brand" name="Logo · Normas de uso" subtitle="Versiones · área de seguridad · fondos · escala" viewport="820x1720" -->
+<html lang="es"><head><meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #0E0F13; font-family: 'Space Grotesk', sans-serif; color: #F2F2F2; -webkit-font-smoothing: antialiased; }
+  body { padding: 40px 40px 60px; max-width: 820px; }
+
+  /* Section */
+  .section { margin-bottom: 48px; }
+  .section-head { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .section-num { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 11px; color: #C9A84C; letter-spacing: 0.2em; opacity: 0.7; }
+  .section-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 16px; letter-spacing: 0.14em; text-transform: uppercase; color: #F2F2F2; }
+  .section-line { flex: 1; height: 1px; background: rgba(201,168,76,0.2); }
+
+  /* Panels */
+  .panel { background: #15161C; border: 1px solid rgba(242,242,242,0.08); padding: 28px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 16px; border-radius: 2px; }
+  .panel.dark  { background: #0E0F13; }
+  .panel.light { background: #F0EDE6; }
+  .panel.gold-bg { background: #C9A84C; }
+  .panel.purple-bg { background: #4C3B9A; }
+  .panel-label { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(242,242,242,0.35); margin-top: 4px; }
+  .panel-label.on-light { color: rgba(14,15,19,0.4); }
+
+  /* Grid layouts */
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .grid-bg { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+
+  /* Wordmark inline */
+  .wm { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; text-transform: uppercase; letter-spacing: 0.06em; line-height: 0.9; }
+  .wm .w1 { color: #F2F2F2; }
+  .wm .w2 { color: #C9A84C; }
+
+  /* Escudo + wordmark lockup */
+  .lockup { display: flex; align-items: center; gap: 14px; }
+  .lockup-text .sub { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(242,242,242,0.4); margin-top: 4px; }
+
+  /* Safety area */
+  .safety-wrap { position: relative; display: inline-flex; align-items: center; justify-content: center; }
+  .safety-box { position: absolute; border: 1px dashed rgba(201,168,76,0.55); pointer-events: none; }
+  .safety-arrow { position: absolute; font-size: 8px; color: rgba(201,168,76,0.7); letter-spacing: 0.05em; white-space: nowrap; }
+
+  /* Min size row */
+  .minsize-row { display: flex; align-items: flex-end; gap: 24px; }
+  .minsize-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .minsize-label { font-size: 9px; letter-spacing: 0.16em; color: rgba(242,242,242,0.4); text-transform: uppercase; }
+  .minsize-label.warn { color: #C9A84C; }
+
+  /* Filter utilities */
+  .iso-white  { filter: brightness(0) invert(1); }
+  .iso-dark   { filter: brightness(0); }
+  .iso-gold   { /* default */ }
+
+  /* Note box */
+  .note { background: rgba(201,168,76,0.06); border-left: 2px solid rgba(201,168,76,0.4); padding: 10px 14px; font-size: 11px; color: rgba(242,242,242,0.55); line-height: 1.6; border-radius: 0 2px 2px 0; margin-top: 12px; }
+  .note strong { color: #C9A84C; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<!-- ══ 1. SISTEMA DE MARCA ══════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-num">01</span>
+    <span class="section-title">Sistema de marca</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="grid-3">
+    <div class="panel" style="gap:12px;">
+      <img src="../assets/escudo-prime.png" width="90" height="90" alt="Escudo Prime">
+      <span class="panel-label">Escudo — Marca primaria</span>
+    </div>
+    <div class="panel" style="gap:12px;">
+      <img src="../assets/isotipo-prime.svg" width="64" height="64" alt="Isotipo Prime">
+      <span class="panel-label">Isotipo — Versión reducida</span>
+    </div>
+    <div class="panel" style="gap:12px;">
+      <div class="wm" style="font-size:28px;text-align:center;">
+        <div class="w1">PRIME</div><div class="w2">VOLEY</div>
+      </div>
+      <span class="panel-label">Wordmark — Versión textual</span>
+    </div>
+  </div>
+  <p class="note">Usar el <strong>escudo</strong> como marca principal en todos los formatos ≥ 80px. El <strong>isotipo</strong> reemplaza al escudo en formatos pequeños (app, avatar, bordado, favicon). El <strong>wordmark</strong> se usa cuando el logo no cabe o en contextos solo texto.</p>
+</div>
+
+<!-- ══ 2. VERSIÓN MAESTRA ══════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-num">02</span>
+    <span class="section-title">Versión maestra</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="panel dark" style="padding:40px 28px;">
+    <div class="lockup">
+      <img src="../assets/escudo-prime.png" width="120" height="120" alt="Escudo Prime">
+      <div class="lockup-text">
+        <div class="wm" style="font-size:36px;">
+          <div class="w1">PRIME</div><div class="w2">VOLEY</div>
+        </div>
+        <div class="sub">Club de Voleibol · Zipaquirá</div>
+      </div>
+    </div>
+    <span class="panel-label">Lockup horizontal — uso preferido en documentos y presentaciones</span>
+  </div>
+</div>
+
+<!-- ══ 3. VERSIÓN MONOCROMA ════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-num">03</span>
+    <span class="section-title">Versión monocroma · Isotipo</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="grid-3">
+    <div class="panel dark">
+      <img src="../assets/isotipo-prime.svg" width="72" height="72" class="iso-gold" alt="">
+      <span class="panel-label">Dorado · uso principal</span>
+    </div>
+    <div class="panel dark">
+      <img src="../assets/isotipo-prime.svg" width="72" height="72" class="iso-white" alt="">
+      <span class="panel-label">Blanco · alternativa oscuro</span>
+    </div>
+    <div class="panel light">
+      <img src="../assets/isotipo-prime.svg" width="72" height="72" class="iso-dark" alt="">
+      <span class="panel-label on-light">Negro · sobre fondos claros</span>
+    </div>
+  </div>
+  <p class="note"><strong>Nota:</strong> Para el escudo completo, una versión monocroma oficial (SVG de una sola tinta) debe solicitarse al diseñador. El PNG del escudo no debe recolorearse manualmente.</p>
+</div>
+
+<!-- ══ 4. POSITIVO / NEGATIVO ══════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-num">04</span>
+    <span class="section-title">Positivo / Negativo</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="grid-2">
+    <div class="panel dark" style="min-height:160px; gap:10px;">
+      <img src="../assets/isotipo-prime.svg" width="80" height="80" class="iso-gold" alt="">
+      <div class="wm" style="font-size:22px; text-align:center;"><span class="w1">PRIME </span><span class="w2">VOLEY</span></div>
+      <span class="panel-label">Negativo — sobre fondo oscuro ✓ Uso principal</span>
+    </div>
+    <div class="panel light" style="min-height:160px; gap:10px;">
+      <img src="../assets/isotipo-prime.svg" width="80" height="80" class="iso-dark" alt="">
+      <div class="wm" style="font-size:22px; text-align:center; color:#0E0F13;"><span style="color:#15161C;">PRIME VOLEY</span></div>
+      <span class="panel-label on-light">Positivo — sobre fondo claro · uso en impresión</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 5. VERSIÓN REDUCIDA ═════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-num">05</span>
+    <span class="section-title">Versión reducida · Escala</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="panel dark" style="flex-direction:row; align-items:flex-end; justify-content:center; gap:32px; padding:32px 24px; flex-wrap:wrap;">
+    <div class="minsize-item">
+      <img src="../assets/escudo-prime.png" width="120" height="120" alt="">
+      <span class="minsize-label">Escudo 120px</span>
+    </div>
+    <div class="minsize-item">
+      <img src="../assets/escudo-prime.png" width="80" height="80" alt="">
+      <span class="minsize-label">Escudo 80px</span>
+    </div>
+    <div style="width:1px; height:80px; background:rgba(201,168,76,0.2); align-self:center;"></div>
+    <div class="minsize-item">
+      <img src="../assets/isotipo-prime.svg" width="64" height="64" alt="">
+      <span class="minsize-label">Isotipo 64px</span>
+    </div>
+    <div class="minsize-item">
+      <img src="../assets/isotipo-prime.svg" width="48" height="48" alt="">
+      <span class="minsize-label">Isotipo 48px</span>
+    </div>
+    <div class="minsize-item">
+      <img src="../assets/isotipo-prime.svg" width="32" height="32" alt="">
+      <span class="minsize-label">Isotipo 32px</span>
+    </div>
+    <div class="minsize-item">
+      <img src="../assets/isotipo-prime.svg" width="24" height="24" alt="">
+      <span class="minsize-label warn">Isotipo 24px ↓ mín.</span>
+    </div>
+  </div>
+  <p class="note">Usar el <strong>escudo completo</strong> hasta 80px mínimo. Por debajo de ese umbral, usar siempre el <strong>isotipo</strong>. El isotipo no debe usarse por debajo de 24px.</p>
+</div>
+
+<!-- ══ 6. ÁREA DE SEGURIDAD ════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-num">06</span>
+    <span class="section-title">Área de seguridad</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="panel dark" style="padding:48px;">
+    <div class="safety-wrap" style="padding:24px;">
+      <div class="safety-box" style="inset:0;"></div>
+      <!-- top annotation -->
+      <div class="safety-arrow" style="top:-18px; left:50%; transform:translateX(-50%);">← 1× altura del isotipo →</div>
+      <div class="safety-arrow" style="left:-58px; top:50%; transform:translateY(-50%) rotate(-90deg);">← 1× altura →</div>
+      <img src="../assets/isotipo-prime.svg" width="80" height="80" alt="">
+    </div>
+    <span class="panel-label" style="margin-top:16px;">El área de seguridad mínima es igual a la altura del isotipo en todos los lados</span>
+  </div>
+  <p class="note">Ningún elemento (texto, imagen, borde) puede entrar en el área de seguridad. Esta restricción aplica tanto al <strong>isotipo</strong> como al <strong>escudo completo</strong>.</p>
+</div>
+
+<!-- ══ 7. TAMAÑO MÍNIMO ════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-num">07</span>
+    <span class="section-title">Tamaño mínimo</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="grid-2">
+    <div class="panel dark" style="flex-direction:row; gap:20px; align-items:center;">
+      <div style="position:relative;">
+        <img src="../assets/escudo-prime.png" width="80" height="80" alt="">
+        <div style="position:absolute;bottom:-20px;left:0;right:0;text-align:center;font-size:9px;color:#C9A84C;letter-spacing:0.12em;">↔ 80px</div>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:600; color:#F2F2F2; margin-bottom:4px;">Escudo completo</div>
+        <div style="font-size:10px; color:rgba(242,242,242,0.45); line-height:1.5;">Mínimo: <strong style="color:#C9A84C;">80px</strong><br>Digital · Impresión: <strong style="color:#C9A84C;">2 cm</strong></div>
+      </div>
+    </div>
+    <div class="panel dark" style="flex-direction:row; gap:20px; align-items:center;">
+      <div style="position:relative;">
+        <img src="../assets/isotipo-prime.svg" width="24" height="24" alt="">
+        <div style="position:absolute;bottom:-20px;left:0;right:0;text-align:center;font-size:9px;color:#C9A84C;letter-spacing:0.12em;">↔ 24px</div>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:600; color:#F2F2F2; margin-bottom:4px;">Isotipo</div>
+        <div style="font-size:10px; color:rgba(242,242,242,0.45); line-height:1.5;">Mínimo: <strong style="color:#C9A84C;">24px</strong><br>Digital · Impresión: <strong style="color:#C9A84C;">8 mm</strong></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 8. PRUEBAS DE FONDO ══════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-head">
+    <span class="section-num">08</span>
+    <span class="section-title">Pruebas sobre fondo</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="grid-bg">
+    <div class="panel dark" style="min-height:90px; padding:16px;">
+      <img src="../assets/isotipo-prime.svg" width="48" height="48" class="iso-gold" alt="">
+      <span class="panel-label">#0E0F13 ✓</span>
+    </div>
+    <div class="panel" style="min-height:90px; padding:16px;">
+      <img src="../assets/isotipo-prime.svg" width="48" height="48" class="iso-gold" alt="">
+      <span class="panel-label">#15161C ✓</span>
+    </div>
+    <div class="panel light" style="min-height:90px; padding:16px;">
+      <img src="../assets/isotipo-prime.svg" width="48" height="48" class="iso-dark" alt="">
+      <span class="panel-label on-light">#F0EDE6 ✓</span>
+    </div>
+    <div class="panel" style="background:#FFFFFF; min-height:90px; padding:16px;">
+      <img src="../assets/isotipo-prime.svg" width="48" height="48" class="iso-dark" alt="">
+      <span class="panel-label on-light">#FFFFFF ✓</span>
+    </div>
+    <div class="panel gold-bg" style="min-height:90px; padding:16px;">
+      <img src="../assets/isotipo-prime.svg" width="48" height="48" class="iso-dark" alt="">
+      <span class="panel-label on-light">Gold ⚠ solo en blanco/negro</span>
+    </div>
+    <div class="panel purple-bg" style="min-height:90px; padding:16px;">
+      <img src="../assets/isotipo-prime.svg" width="48" height="48" class="iso-white" alt="">
+      <span class="panel-label">Purple ✓ blanco</span>
+    </div>
+    <div class="panel" style="background: linear-gradient(135deg, #15161C 50%, #4C3B9A); min-height:90px; padding:16px;">
+      <img src="../assets/isotipo-prime.svg" width="48" height="48" class="iso-gold" alt="">
+      <span class="panel-label">Gradiente ✓</span>
+    </div>
+    <div class="panel" style="background: repeating-linear-gradient(90deg, #15161C, #15161C 11px, rgba(76,59,154,0.2) 11px, rgba(76,59,154,0.2) 12px); min-height:90px; padding:16px;">
+      <img src="../assets/isotipo-prime.svg" width="48" height="48" class="iso-gold" alt="">
+      <span class="panel-label">Pinstripe ✓</span>
+    </div>
+  </div>
+  <p class="note"><strong>✓</strong> = uso correcto · <strong>⚠</strong> = solo si hay contraste suficiente entre isotipo y fondo. Nunca usar el isotipo dorado sobre fondos dorados ni blancos sobre fondos muy claros.</p>
+</div>
+
+</body></html>

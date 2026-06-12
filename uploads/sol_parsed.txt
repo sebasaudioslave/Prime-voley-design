@@ -1,0 +1,29 @@
+[0] P  Zipaquirá, Cundinamarca, ___ de __________________ de 2026
+[1] P  Señor(a)
+[2] P  ________________________________
+[3] P  Director(a) — Instituto Municipal de Recreación y Deporte de Zipaquirá (IMRDN)
+[4] P  Ciudad
+[5] P  Asunto: Solicitud de Reconocimiento Deportivo — Club Deportivo Prime
+[6] P  Respetado(a) señor(a) Director(a):
+[7] P  Yo, David Sebastián Fonseca Carvajal, identificado con cédula de ciudadanía No. 175.684.517, en calidad de Presidente y Representante Legal del CLUB DEPORTIVO PRIME, organismo deportivo de derecho privado constituido en el municipio de Zipaquirá el ___ de __________________ de 2026, me dirijo a usted respetuosamente para solicitar el reconocimiento deportivo de nuestra organización, conforme a lo establecido en la Ley 181 de 1995, el Decreto Ley 1228 de 1995 y la Resolución 000410 del 13 de mayo de 2026 del Ministerio del Deporte de Colombia.
+[8] P  El Club Deportivo Prime tiene como objeto el fomento, protección y desarrollo del deporte del voleibol en el municipio de Zipaquirá en todas sus modalidades. Contamos con un mínimo de doce (12) deportistas afiliados y hemos dado cumplimiento a los requisitos establecidos por el ente deportivo municipal para la constitución de clubes deportivos.
+[9] P  Para efectos del reconocimiento solicitado, adjuntamos los siguientes documentos:
+[10] P  1. Original o copia autenticada del Acta de Constitución No. 001.
+[11] P  2. Original y copia de los Estatutos Sociales del Club Deportivo Prime.
+[12] P  3. Listado de deportistas afiliados debidamente identificados.
+[13] P  4. Acta de compromiso deportivo firmada por cada afiliado.
+[14] P  5. Acta No. 002 de Reunión del Órgano de Administración — Asignación de cargos.
+[15] P  6. Plan de Desarrollo Deportivo Anual.
+[16] P  7. Dirección, teléfono y correo electrónico de la sede administrativa del Club.
+[17] P  Los datos de contacto del Club son los siguientes:
+[18] P  Dirección sede administrativa: _______________________________________________
+[19] P  Teléfono: ___________________________________
+[20] P  Correo electrónico: __________________________
+[21] P  Municipio: Zipaquirá, Cundinamarca.
+[22] P  Agradezco su atención y quedo en espera de la respuesta favorable a la presente solicitud.
+[23] P  Cordialmente,
+[24] P  David Sebastián Fonseca Carvajal
+[25] P  Presidente — Representante Legal
+[26] P  Club Deportivo Prime
+[27] P  C.C. 175.684.517
+[28] P  Zipaquirá, Cundinamarca

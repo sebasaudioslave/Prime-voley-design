@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Brand" name="Recibo de Pago" subtitle="PV·260530·N·001 · Brayan Tuso · Inscripción $100.000" viewport="794x559" -->
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Recibo PV·260530·N·001 — Prime Voley Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ── PAGE ─────────────────────────────────────────── */
+  @page { size: A5 landscape; margin: 0; }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* CSS variables (subset — no external file needed for print) */
+  :root {
+    --carbon-900: #0E0F13;
+    --carbon-800: #15161C;
+    --carbon-700: #1C1D26;
+    --carbon-500: rgba(242,242,242,0.12);
+    --gold:        #C9A84C;
+    --gold-bright: #E8C76A;
+    --gold-deep:   #A8882E;
+    --purple:      #4C3B9A;
+    --white:       #F2F2F2;
+    --white-dim:   rgba(242,242,242,0.65);
+    --white-faint: rgba(242,242,242,0.35);
+    --font-display:'Barlow Condensed', sans-serif;
+    --font-body:   'Space Grotesk', sans-serif;
+    --font-mono:   'Courier New', 'Courier', monospace;
+  }
+
+  html, body {
+    background: #060709;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+  @media print {
+    html, body { width: 210mm; height: 148mm; background: var(--carbon-800); }
+  }
+
+  /* ── Screen wrapper (hidden in print) ────────────── */
+  .stage {
+    min-height: 100vh;
+    background: #060709;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  @media print {
+    .stage { min-height: unset; padding: 0; background: none; }
+  }
+
+  /* ── Receipt shell ────────────────────────────────── */
+  .receipt {
+    width: 730px;
+    height: 515px; /* 730 × (148/210) */
+    background: var(--carbon-800);
+    position: relative;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.7);
+  }
+  @media print {
+    .receipt {
+      width: 210mm;
+      height: 148mm;
+      overflow: hidden;
+      box-shadow: none;
+    }
+  }
+
+  /* pinstripe texture */
+  .receipt::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 11px,
+      rgba(76,59,154,0.08) 11px,
+      rgba(76,59,154,0.08) 12px
+    );
+    pointer-events: none; z-index: 0;
+  }
+  .receipt > * { position: relative; z-index: 1; }
+
+  /* ── Gold top bar ─────────────────────────────────── */
+  .r-topbar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold-deep) 0%, var(--gold-bright) 40%, var(--gold) 70%, var(--gold-deep) 100%);
+    flex-shrink: 0;
+  }
+
+  /* ── Header ───────────────────────────────────────── */
+  .r-header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px 11px;
+    border-bottom: 1px solid rgba(201,168,76,0.45);
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .r-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .r-brand img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+  }
+  .r-brand-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 17px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--white);
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .r-brand-name em { color: var(--gold); font-style: normal; }
+  .r-brand-sub {
+    font-size: 8.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--white-faint);
+    margin-top: 3px;
+  }
+
+  .r-title-block { text-align: center; }
+  .r-title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 20px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--white);
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .r-num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 0.04em;
+    margin-top: 5px;
+    white-space: nowrap;
+  }
+
+  .r-date-block {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: right;
+  }
+  .r-date-lbl {
+    font-size: 8.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--white-faint);
+  }
+  .r-date-val {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--white);
+    margin-top: 3px;
+    white-space: nowrap;
+  }
+
+  /* ── Body ─────────────────────────────────────────── */
+  .r-body {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1px 1.08fr 1px 130px;
+    min-height: 0;
+  }
+
+  .r-sep {
+    background: linear-gradient(180deg, transparent, rgba(201,168,76,0.25) 20%, rgba(201,168,76,0.25) 80%, transparent);
+    align-self: stretch;
+  }
+
+  /* ── Member column ────────────────────────────────── */
+  .r-member {
+    padding: 16px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+  }
+
+  .field { display: flex; flex-direction: column; gap: 2px; }
+  .lbl {
+    font-size: 8px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--white-faint);
+  }
+  .val {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--white);
+    line-height: 1.25;
+  }
+  .val.display {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 21px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+  .val.gold-c { color: var(--gold); }
+  .val.mono { font-family: var(--font-mono); font-size: 12.5px; }
+
+  /* ── Payment column ───────────────────────────────── */
+  .r-payment {
+    padding: 14px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .amount-box {
+    background: rgba(201,168,76,0.07);
+    border: 1px solid rgba(201,168,76,0.28);
+    padding: 9px 14px 10px;
+    flex-shrink: 0;
+  }
+  .amount-lbl {
+    font-size: 8px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.55);
+  }
+  .amount-val {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 44px;
+    color: var(--gold);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+    margin-top: 1px;
+  }
+
+  .pay-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px 16px;
+  }
+
+  /* ── Status column ────────────────────────────────── */
+  .r-status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    background: rgba(0,0,0,0.18);
+    padding: 16px 6px;
+  }
+
+  .stamp {
+    border: 2.5px solid var(--gold);
+    padding: 7px 8px 6px;
+    transform: rotate(-9deg) scale(0.92);
+    text-align: center;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .stamp::before {
+    content: '';
+    position: absolute; inset: 3px;
+    border: 1px solid rgba(201,168,76,0.2);
+    pointer-events: none;
+  }
+  .stamp-word {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 22px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    line-height: 1;
+    display: block;
+    white-space: nowrap;
+  }
+  .stamp-sub {
+    font-size: 7.5px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.5);
+    display: block;
+    margin-top: 3px;
+  }
+
+  /* ── Footer ───────────────────────────────────────── */
+  .r-footer {
+    padding: 7px 22px;
+    border-top: 1px solid rgba(201,168,76,0.18);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-shrink: 0;
+    background: rgba(0,0,0,0.12);
+  }
+  .r-footer-text {
+    font-size: 8px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--white-faint);
+    white-space: nowrap;
+  }
+  .r-footer-text em {
+    color: rgba(201,168,76,0.55);
+    font-style: normal;
+  }
+</style>
+<template id="__bundler_thumbnail" data-bg-color="#0E0F13">
+  <svg viewBox="0 0 210 148" xmlns="http://www.w3.org/2000/svg">
+    <rect width="210" height="148" fill="#15161C"/>
+    <rect width="210" height="3" fill="#C9A84C"/>
+    <rect x="14" y="18" width="60" height="6" rx="1" fill="#F2F2F2" opacity="0.8"/>
+    <rect x="14" y="28" width="40" height="4" rx="1" fill="#C9A84C" opacity="0.6"/>
+    <rect x="80" y="16" width="50" height="8" rx="1" fill="#F2F2F2" opacity="0.5"/>
+    <rect x="85" y="28" width="40" height="3" rx="1" fill="#C9A84C" opacity="0.4"/>
+    <rect x="155" y="18" width="42" height="5" rx="1" fill="#F2F2F2" opacity="0.4"/>
+    <rect x="0" y="38" width="210" height="1" fill="#C9A84C" opacity="0.4"/>
+    <rect x="14" y="48" width="55" height="5" rx="1" fill="#F2F2F2" opacity="0.7"/>
+    <rect x="14" y="58" width="40" height="4" rx="1" fill="#F2F2F2" opacity="0.4"/>
+    <rect x="14" y="68" width="45" height="4" rx="1" fill="#C9A84C" opacity="0.5"/>
+    <rect x="14" y="78" width="35" height="4" rx="1" fill="#F2F2F2" opacity="0.4"/>
+    <rect x="80" y="46" width="80" height="28" rx="2" fill="#C9A84C" opacity="0.1" stroke="#C9A84C" stroke-width="0.5"/>
+    <rect x="88" y="52" width="30" height="4" rx="1" fill="#C9A84C" opacity="0.4"/>
+    <rect x="88" y="60" width="55" height="10" rx="1" fill="#C9A84C" opacity="0.7"/>
+    <rect x="80" y="80" width="38" height="4" rx="1" fill="#F2F2F2" opacity="0.4"/>
+    <rect x="122" y="80" width="38" height="4" rx="1" fill="#F2F2F2" opacity="0.4"/>
+    <rect x="163" y="44" width="34" height="22" rx="1" fill="#C9A84C" opacity="0.08" stroke="#C9A84C" stroke-width="1.5" transform="rotate(-9 163 44)"/>
+    <text x="167" y="58" font-size="9" fill="#C9A84C" font-weight="bold" transform="rotate(-9 167 55)">PAGADO</text>
+    <rect x="0" y="136" width="210" height="1" fill="#C9A84C" opacity="0.2"/>
+    <rect x="14" y="140" width="80" height="3" rx="1" fill="#F2F2F2" opacity="0.2"/>
+    <rect x="140" y="140" width="56" height="3" rx="1" fill="#F2F2F2" opacity="0.2"/>
+  </svg>
+</template>
+</head>
+<body>
+<div class="stage">
+  <div class="receipt">
+
+    <!-- Gold top bar -->
+    <div class="r-topbar"></div>
+
+    <!-- Header -->
+    <header class="r-header">
+      <div class="r-brand">
+        <img src="../assets/escudo-prime.png" alt="Prime Voley">
+        <div>
+          <div class="r-brand-name">PRIME <em>VOLEY</em> CLUB</div>
+          <div class="r-brand-sub">Club de Voleibol · Zipaquirá</div>
+        </div>
+      </div>
+      <div class="r-title-block">
+        <div class="r-title">Recibo de Pago</div>
+        <div class="r-num">PV·260530·N·001</div>
+      </div>
+      <div class="r-date-block">
+        <div class="r-date-lbl">Fecha de pago</div>
+        <div class="r-date-val">30 de mayo de 2026</div>
+      </div>
+    </header>
+
+    <!-- Body -->
+    <div class="r-body">
+
+      <!-- ① Member info -->
+      <div class="r-member">
+        <div class="field">
+          <span class="lbl">Miembro</span>
+          <span class="val display">Brayan Tuso</span>
+        </div>
+        <div class="field">
+          <span class="lbl">Tipo de miembro</span>
+          <span class="val">Miembro</span>
+        </div>
+        <div class="field">
+          <span class="lbl">Concepto</span>
+          <span class="val gold-c" style="font-weight:700;">Inscripción</span>
+        </div>
+        <div class="field">
+          <span class="lbl">Período</span>
+          <span class="val">Junio 2026</span>
+        </div>
+      </div>
+
+      <div class="r-sep"></div>
+
+      <!-- ② Payment info -->
+      <div class="r-payment">
+        <div class="amount-box">
+          <div class="amount-lbl">Monto pagado</div>
+          <div class="amount-val">$100.000</div>
+        </div>
+        <div class="pay-grid">
+          <div class="field">
+            <span class="lbl">Método de pago</span>
+            <span class="val">Nequi</span>
+          </div>
+          <div class="field">
+            <span class="lbl">Hora</span>
+            <span class="val">08:10 p.m.</span>
+          </div>
+          <div class="field" style="grid-column:1/-1">
+            <span class="lbl">Referencia de transacción</span>
+            <span class="val mono gold-c">M28041997</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="r-sep"></div>
+
+      <!-- ③ Status stamp -->
+      <div class="r-status">
+        <div class="stamp">
+          <span class="stamp-word">PAGADO</span>
+          <span class="stamp-sub">Verificado</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="r-footer">
+      <span class="r-footer-text"><em>Prime Voley Club</em> · Zipaquirá, Cundinamarca</span>
+      <span class="r-footer-text">Generado el 30 de mayo de 2026 · 08:10 p.m.</span>
+    </footer>
+
+  </div>
+</div>
+<script>
+(function(){
+  var receipt = document.querySelector('.receipt');
+  var RW = 794; // 210mm at 96 dpi
+  function fit(){
+    var avail = window.innerWidth - 40;
+    if(avail < RW){
+      receipt.style.zoom = (avail / RW);
+    } else {
+      receipt.style.zoom = '';
+    }
+  }
+  fit();
+  window.addEventListener('resize', fit);
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  window.addEventListener('load', fit);
+})();
+</script>
+</body>
+</html>

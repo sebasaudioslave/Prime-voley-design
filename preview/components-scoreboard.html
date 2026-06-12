@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Brand" name="Scoreboard" subtitle="Match-day live score bar" viewport="700x150" --><html><head><meta charset="UTF-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+ html,body{margin:0}
+ body{background:var(--carbon-900);font-family:var(--font-body);padding:16px 18px}
+ .board{background:var(--carbon-800);border:1px solid var(--carbon-500);position:relative;overflow:hidden}
+ .board::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;
+   background:repeating-linear-gradient(90deg,var(--gold) 0,var(--gold) 7px,transparent 7px,transparent 18px)}
+
+ /* header strip */
+ .strip{display:flex;justify-content:space-between;align-items:center;padding:9px 16px 8px;
+   border-bottom:1px solid var(--carbon-500)}
+ .comp{font:700 10px/1 var(--font-body);letter-spacing:0.2em;text-transform:uppercase;color:rgba(242,242,242,0.5)}
+ .set{display:flex;align-items:center;gap:7px;font:800 12px/1 var(--font-display);letter-spacing:0.1em;text-transform:uppercase;color:var(--gold)}
+ .live{width:6px;height:6px;border-radius:50%;background:#B0584A;box-shadow:0 0 0 3px rgba(176,88,74,0.18)}
+
+ /* main row */
+ .row{display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch}
+ .team{display:flex;align-items:center;gap:14px;padding:16px 18px}
+ .team.r{flex-direction:row-reverse;text-align:right}
+ .abbr{font:900 30px/0.8 var(--font-display);letter-spacing:0.02em;color:rgba(242,242,242,0.9);
+   width:58px;text-align:center}
+ .team.lead .abbr{color:var(--gold)}
+ .info{display:flex;flex-direction:column;gap:5px}
+ .team.r .info{align-items:flex-end}
+ .nm{font:800 17px/1 var(--font-display);letter-spacing:0.04em;text-transform:uppercase;color:#F2F2F2}
+ .pips{display:flex;gap:4px}
+ .pip{width:14px;height:5px;background:var(--carbon-400)}
+ .pip.on{background:var(--gold)}
+
+ /* center score */
+ .core{display:flex;align-items:center;gap:14px;padding:0 22px;background:var(--carbon-900);
+   border-left:1px solid var(--carbon-500);border-right:1px solid var(--carbon-500)}
+ .num{font:900 58px/0.8 var(--font-display);color:#F2F2F2;font-variant-numeric:tabular-nums}
+ .num.lead{color:var(--gold)}
+ .sep{font:700 10px/1.3 var(--font-body);letter-spacing:0.16em;text-transform:uppercase;color:rgba(242,242,242,0.4);text-align:center}
+</style></head>
+<body>
+ <div class="board">
+  <div class="strip">
+   <span class="comp">Liga Cundinamarca · Jornada 7</span>
+   <span class="set"><span class="live"></span>Set 3 · en vivo</span>
+  </div>
+  <div class="row">
+   <div class="team lead">
+    <span class="abbr">PRI</span>
+    <div class="info">
+     <span class="nm">Prime</span>
+     <div class="pips"><span class="pip on"></span><span class="pip on"></span><span class="pip"></span></div>
+    </div>
+   </div>
+   <div class="core">
+    <span class="num lead">25</span>
+    <span class="sep">Pts<br>Set</span>
+    <span class="num">19</span>
+   </div>
+   <div class="team r">
+    <span class="abbr">HAL</span>
+    <div class="info">
+     <span class="nm">Halcones</span>
+     <div class="pips"><span class="pip on"></span><span class="pip"></span><span class="pip"></span></div>
+    </div>
+   </div>
+  </div>
+ </div>
+</body></html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Actas Oficiales — Club Deportivo Prime</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper: oklch(0.985 0.006 85);
+  --ink: oklch(0.255 0.013 55);
+  --ink-soft: oklch(0.42 0.012 55);
+  --ink-faint: oklch(0.55 0.012 58);
+  --rule: oklch(0.62 0.015 60);
+  --rule-faint: oklch(0.80 0.012 70);
+  --backdrop: oklch(0.46 0.012 60);
+  --serif: "EB Garamond","Hoefler Text",Garamond,"Times New Roman",serif;
+}
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+body{
+  background:radial-gradient(120% 80% at 50% 0%, oklch(0.5 0.012 60) 0%, var(--backdrop) 70%);
+  font-family:var(--serif); color:var(--ink);
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  font-feature-settings:"liga" 1,"onum" 1,"kern" 1;
+}
+#pages{ display:flex; flex-direction:column; align-items:center; gap:30px; padding:42px 16px 70px; }
+.page{ position:relative; width:816px; height:1056px; background:var(--paper);
+  box-shadow:0 1px 0 rgba(255,255,255,.4) inset, 0 22px 50px -18px rgba(0,0,0,.55), 0 2px 8px rgba(0,0,0,.2); overflow:hidden; }
+.page-header{ position:absolute; top:44px; left:104px; right:104px; display:flex; justify-content:space-between; align-items:baseline;
+  font-size:9.5px; letter-spacing:.26em; text-transform:uppercase; color:var(--ink-soft); font-weight:500;
+  padding-bottom:9px; border-bottom:0.6px solid var(--rule-faint); }
+.page-header .hr-right{ letter-spacing:.16em; font-style:italic; text-transform:none; font-size:10.5px; }
+.page-footer{ position:absolute; bottom:40px; left:104px; right:104px; display:flex; justify-content:center; align-items:center;
+  font-size:9.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-soft); white-space:nowrap; }
+.page-footer::before,.page-footer::after{ content:""; flex:0 0 26px; height:0.6px; background:var(--rule-faint); margin:0 16px; }
+.page-content{ position:absolute; top:84px; left:104px; width:608px; }
+.page.has-masthead .page-content{ top:74px; }
+
+/* ---- masthead ---- */
+.acta-open{ text-align:center; margin:6px 0 30px; }
+.mh-emblem{ width:6px; height:6px; background:var(--ink); transform:rotate(45deg); margin:0 auto 18px; }
+.mh-club{ font-size:25px; letter-spacing:.2em; text-transform:uppercase; font-weight:600; color:var(--ink); padding-left:.2em; }
+.mh-place{ font-size:11.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-soft); margin-top:9px; padding-left:.2em; }
+.mh-rule{ display:flex; align-items:center; justify-content:center; width:60%; margin:20px auto 18px; }
+.mh-rule span{ flex:1; height:0.8px; background:var(--rule); }
+.mh-rule i{ width:5px; height:5px; background:var(--rule); transform:rotate(45deg); margin:0 12px; }
+.mh-num{ font-size:17px; letter-spacing:.34em; text-transform:uppercase; font-weight:600; color:var(--ink); padding-left:.34em; }
+.mh-sub{ font-size:13.5px; font-style:italic; color:var(--ink-soft); margin:11px auto 0; max-width:84%; line-height:1.5; letter-spacing:.01em; }
+
+/* ---- section separators (roman) ---- */
+.sec-head{ margin:26px 0 13px; border-top:0.7px solid var(--rule); padding-top:9px;
+  display:flex; align-items:baseline; gap:.7em; }
+.sec-head .sec-rule{ display:none; }
+.sec-roman{ font-size:13px; font-weight:600; letter-spacing:.06em; color:var(--ink); }
+.sec-roman::after{ content:"·"; margin-left:.7em; color:var(--rule); }
+.sec-name{ font-size:12px; font-weight:500; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-soft); white-space:nowrap; }
+
+/* ---- punto subheads ---- */
+.punto{ margin:18px 0 7px; line-height:1.4; }
+.punto .pt-num{ font-weight:600; letter-spacing:.04em; font-size:12.5px; text-transform:uppercase; }
+.punto .pt-name{ font-weight:500; letter-spacing:.12em; font-size:11.5px; text-transform:uppercase; color:var(--ink-soft); }
+
+/* ---- body ---- */
+p{ margin:0; }
+.body{ font-size:15px; line-height:1.62; text-align:justify; hyphens:auto; -webkit-hyphens:auto; margin:0 0 9px; }
+.lead{ margin-bottom:7px; }
+.sec-head + .body, .punto + .body{ margin-top:0; }
+.oitem{ font-size:15px; line-height:1.5; padding-left:1.9em; text-indent:-1.9em; margin:0 0 4px; }
+.oitem .oi-num{ font-weight:600; font-variant-numeric:lining-nums; }
+.vote{ font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-soft);
+  text-align:center; margin:11px auto 12px; padding-top:8px; border-top:0.6px solid var(--rule-faint); width:84%; font-variant-numeric:lining-nums; }
+.fill{ font-size:14px; color:var(--ink-faint); letter-spacing:-0.5px; white-space:nowrap; overflow:hidden; margin:0 0 11px; }
+
+/* ---- tables ---- */
+table{ border-collapse:collapse; width:100%; margin:6px 0 14px; font-variant-numeric:lining-nums; }
+.t-data th,.t-data td{ border:0.6px solid var(--rule-faint); padding:7px 9px; text-align:left; vertical-align:top; font-size:12.5px; line-height:1.4; }
+.t-data thead th{ font-size:10px; letter-spacing:.13em; text-transform:uppercase; font-weight:600; color:var(--ink-soft);
+  border-bottom:1.1px solid var(--rule); background:oklch(0.965 0.008 80); white-space:nowrap; }
+.t-data tbody td{ color:var(--ink); }
+.t-kv{ border:0.7px solid var(--rule); }
+.t-kv th{ width:30%; text-align:left; vertical-align:top; padding:8px 11px; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase;
+  font-weight:600; color:var(--ink-soft); border-right:0.7px solid var(--rule-faint); border-bottom:0.6px solid var(--rule-faint); background:oklch(0.965 0.008 80); }
+.t-kv td{ padding:8px 12px; font-size:14px; line-height:1.5; color:var(--ink); border-bottom:0.6px solid var(--rule-faint); }
+.t-kv tr:last-child th,.t-kv tr:last-child td{ border-bottom:none; }
+
+/* ---- signatures ---- */
+.sig-grid{ display:grid; grid-template-columns:1fr 1fr; gap:30px 56px; margin:30px 0 8px; }
+.sig{ text-align:center; }
+.sig-space{ height:46px; }
+.sig-line{ height:0.8px; background:var(--ink-soft); margin:0 0 9px; }
+.sig-name{ font-size:13.5px; font-weight:600; letter-spacing:.01em; color:var(--ink); min-height:1.1em; }
+.sig-role{ font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-soft); margin-top:5px; }
+.sig-cc{ font-size:11.5px; letter-spacing:.05em; color:var(--ink-soft); margin-top:10px; font-variant-numeric:lining-nums; }
+
+#source{ display:none; }
+@media print{
+  @page{ size:Letter; margin:0; }
+  html,body{ background:#fff; }
+  body{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  #pages{ gap:0; padding:0; }
+  .page{ background:#fff !important; box-shadow:none; page-break-after:always; break-after:page; }
+  .page:last-child{ page-break-after:auto; break-after:auto; }
+  *,*::before,*::after{ animation-duration:.001s !important; transition-duration:0s !important; }
+}
+</style>
+</head>
+<body>
+<div id="source"></div>
+<div id="pages"></div>
+<script id="blocks" type="application/json">[{"acta":1,"masthead":true,"html":"<div class=\"acta-open\" data-acta=\"1\"><div class=\"mh-emblem\"></div><div class=\"mh-club\">CLUB DEPORTIVO PRIME</div><div class=\"mh-place\">Zipaquirá, Cundinamarca · Colombia</div><div class=\"mh-rule\"><span></span><i></i><span></span></div><div class=\"mh-num\">ACTA DE CONSTITUCIÓN No. 001</div><div class=\"mh-sub\">Asamblea de Constitución, Aprobación de Estatutos y Elección de Órganos</div></div>"},{"acta":1,"head":true,"html":"<div class=\"sec-head\"><div class=\"sec-rule\"></div><div class=\"sec-roman\">I</div><div class=\"sec-name\">APERTURA DE LA REUNIÓN</div><div class=\"sec-rule\"></div></div>"},{"acta":1,"html":"<p class=\"body\">En el municipio de Zipaquirá, departamento de Cundinamarca, República de Colombia, siendo las ___:___ horas del día ___ del mes de __________________ de dos mil veintiséis (2026), se reunieron en ____________________________________________ (dirección), los deportistas fundadores que se relacionan a continuación, con el propósito de constituir el CLUB DEPORTIVO PRIME, aprobar sus Estatutos Sociales y elegir sus órganos, conforme a la Ley 181 de 1995, el Decreto Ley 1228 de 1995 y la Resolución 000410 del 13 de mayo de 2026 del Ministerio del Deporte.</p>"},{"acta":1,"html":"<p class=\"body\">Los asistentes acordaron elegir como Presidente ad-hoc a _________________________________ y como Secretario(a) ad-hoc a _________________________________, para moderar y dirigir la presente asamblea.</p>"},{"acta":1,"head":true,"html":"<div class=\"sec-head\"><div class=\"sec-rule\"></div><div class=\"sec-roman\">II</div><div class=\"sec-name\">LISTA DE ASISTENTES</div><div class=\"sec-rule\"></div></div>"},{"acta":1,"html":"<table class=\"t-data\"><thead><tr><th>#</th><th>Nombre completo</th><th>C.C.</th><th>Firma</th></tr></thead><tbody><tr><td>1</td><td>_________________________________</td><td>___________________</td><td></td></tr><tr><td>2</td><td>_________________________________</td><td>___________________</td><td></td></tr><tr><td>3</td><td>_________________________________</td><td>___________________</td><td></td></tr><tr><td>4</td><td>_________________________________</td><td>___________________</td><td></td></tr><tr><td>5</td><td>_________________________________</td><td>___________________</td><td></td></tr><tr><td>6</td><td>_________________________________</td><td>___________________</td><td></td></tr><tr><td>7</td><td>_________________________________</td><td>___________________</td><td></td></tr><tr><td>8</td><td>_________________________________</td><td>___________________</td><td></td></tr><tr><td>9</td><td>_________________________________</td><td>___________________</td><td></td></tr><tr><td>10</td><td>_________________________________</td><td>___________________</td><td></td></tr><tr><td>11</td><td>_________________________________</td><td>___________________</td><td></td></tr><tr><td>12</td><td>_________________________________</td><td>___________________</td><td></td></tr><tr><td>13</td><td>_________________________________</td><td>___________________</td><td></td></tr><tr><td>14</td><td>_________________________________</td><td>___________________</td><td></td></tr><tr><td>15</td><td>_________________________________</td><td>___________________</td><td></td></tr></tbody></table>"},{"acta":1,"html":"<p class=\"body\">Total de asistentes: ____ personas. Quórum verificado: se acredita la presencia del número mínimo de doce (12) deportistas exigido para deportes de conjunto conforme a la normativa de la Federación Colombiana de Voleibol y la Resolución 000410 de 2026.</p>"},{"acta":1,"head":true,"html":"<div class=\"sec-head\"><div class=\"sec-rule\"></div><div class=\"sec-roman\">III</div><div class=\"sec-name\">ORDEN DEL DÍA</div><div class=\"sec-rule\"></div></div>"},{"acta":1,"html":"<p class=\"oitem\"><span class=\"oi-num\">1.</span> Llamado a lista y verificación del quórum.</p>"},{"acta":1,"html":"<p class=\"oitem\"><span class=\"oi-num\">2.</span> Aprobación del orden del día.</p>"},{"acta":1,"html":"<p class=\"oitem\"><span class=\"oi-num\">3.</span> Constitución del Club Deportivo Prime: nombre, objeto y domicilio.</p>"},{"acta":1,"html":"<p class=\"oitem\"><span class=\"oi-num\">4.</span> Lectura y aprobación de los Estatutos Sociales.</p>"},{"acta":1,"html":"<p class=\"oitem\"><span class=\"oi-num\">5.</span> Elección del Órgano de Administración.</p>"},{"acta":1,"html":"<p class=\"oitem\"><span class=\"oi-num\">6.</span> Elección de dos (2) miembros de la Comisión Disciplinaria.</p>"},{"acta":1,"html":"<p class=\"oitem\"><span class=\"oi-num\">7.</span> Proposiciones y varios.</p>"},{"acta":1,"html":"<p class=\"body\">El orden del día fue sometido a consideración y aprobado por ____ votos a favor, ____ en contra y ____ abstenciones.</p>"},{"acta":1,"head":true,"html":"<div class=\"sec-head\"><div class=\"sec-rule\"></div><div class=\"sec-roman\">IV</div><div class=\"sec-name\">DESARROLLO DEL ORDEN DEL DÍA</div><div class=\"sec-rule\"></div></div>"},{"acta":1,"head":true,"html":"<p class=\"punto\"><span class=\"pt-num\">PUNTO 1.</span> <span class=\"pt-name\">LLAMADO A LISTA Y VERIFICACIÓN DEL QUÓRUM</span></p>"},{"acta":1,"html":"<p class=\"body\">El Secretario(a) ad-hoc procedió a llamar a lista. El Presidente ad-hoc comprobó la presencia de ____ de los ____ afiliados fundadores del Club, verificando la existencia de quórum suficiente para deliberar y decidir. Se continuó con el orden del día.</p>"},{"acta":1,"head":true,"html":"<p class=\"punto\"><span class=\"pt-num\">PUNTO 2.</span> <span class=\"pt-name\">APROBACIÓN DEL ORDEN DEL DÍA</span></p>"},{"acta":1,"html":"<p class=\"body\">Se sometió a consideración el orden del día propuesto. Fue aprobado por unanimidad.</p>"},{"acta":1,"head":true,"html":"<p class=\"punto\"><span class=\"pt-num\">PUNTO 3.</span> <span class=\"pt-name\">CONSTITUCIÓN DEL CLUB</span></p>"},{"acta":1,"html":"<p class=\"body lead\">El Presidente ad-hoc expuso el propósito de la convocatoria: constituir el primer club deportivo competitivo de voleibol de Zipaquirá, con proyección regional y nacional. Se acordó por unanimidad la siguiente identidad del Club:</p>"},{"acta":1,"html":"<table class=\"t-kv\"><tbody><tr><th scope=\"row\">Nombre oficial</th><td>CLUB DEPORTIVO PRIME</td></tr><tr><th scope=\"row\">Objeto</th><td>Fomento, protección y desarrollo del voleibol en todas sus modalidades: masculino adulto, femenino adulto, mixto e infantil.</td></tr><tr><th scope=\"row\">Domicilio</th><td>Municipio de Zipaquirá, departamento de Cundinamarca, República de Colombia.</td></tr><tr><th scope=\"row\">Colores</th><td>Negro Carbón, Dorado Real, Púrpura Técnico y Blanco Funcional.</td></tr></tbody></table>"},{"acta":1,"html":"<p class=\"vote\">Votación: A favor: ____ · En contra: ____ · Abstenciones: ____ · APROBADO</p>"},{"acta":1,"head":true,"html":"<p class=\"punto\"><span class=\"pt-num\">PUNTO 4.</span> <span class=\"pt-name\">LECTURA Y APROBACIÓN DE LOS ESTATUTOS SOCIALES</span></p>"},{"acta":1,"html":"<p class=\"body\">El Presidente ad-hoc presentó el proyecto de Estatutos Sociales del Club Deportivo Prime, compuesto por diez (10) capítulos y treinta y tres (33) artículos, redactados conforme a la Resolución 000410 del 13 de mayo de 2026. Los Estatutos fueron leídos capítulo por capítulo, discutidos y sometidos a votación.</p>"},{"acta":1,"html":"<p class=\"vote\">Votación: A favor: ____ · En contra: ____ · Abstenciones: ____ · APROBADO</p>"},{"acta":1,"head":true,"html":"<p class=\"punto\"><span class=\"pt-num\">PUNTO 5.</span> <span class=\"pt-name\">ELECCIÓN DEL ÓRGANO DE ADMINISTRACIÓN</span></p>"},{"acta":1,"html":"<p class=\"body lead\">Conforme al artículo Décimo Sexto de los Estatutos aprobados, se procedió a la elección del Órgano de Administración conformado por tres (3) miembros. Se presentaron las siguientes candidaturas:</p>"},{"acta":1,"html":"<table class=\"t-data\"><thead><tr><th>#</th><th>Nombre completo</th><th>C.C.</th><th>Votos a favor</th><th>Votos en contra</th><th>Total votos</th></tr></thead><tbody><tr><td>1</td><td>David Sebastián Fonseca Carvajal</td><td>175.684.517</td><td>____</td><td>____</td><td>____</td></tr><tr><td>2</td><td>José David Caicedo</td><td>1.075.678.000</td><td>____</td><td>____</td><td>____</td></tr><tr><td>3</td><td>Marisol Carvajal Medina</td><td>35.422.570</td><td>____</td><td>____</td><td>____</td></tr></tbody></table>"},{"acta":1,"html":"<p class=\"body lead\">Quedaron elegidos para el Órgano de Administración:</p>"},{"acta":1,"html":"<table class=\"t-data\"><thead><tr><th>Nombre</th><th>C.C.</th><th>Cargo</th></tr></thead><tbody><tr><td>David Sebastián Fonseca Carvajal</td><td>175.684.517</td><td>Presidente — Representante Legal</td></tr><tr><td>José David Caicedo</td><td>1.075.678.000</td><td>Vicepresidente</td></tr><tr><td>Marisol Carvajal Medina</td><td>35.422.570</td><td>Secretaria</td></tr></tbody></table>"},{"acta":1,"html":"<p class=\"body\">Los elegidos aceptaron los cargos en el mismo acto y manifestaron conocer sus responsabilidades legales y estatutarias.</p>"},{"acta":1,"html":"<p class=\"vote\">Votación: A favor: ____ · En contra: ____ · Abstenciones: ____ · APROBADO</p>"},{"acta":1,"head":true,"html":"<p class=\"punto\"><span class=\"pt-num\">PUNTO 6.</span> <span class=\"pt-name\">ELECCIÓN DE LA COMISIÓN DISCIPLINARIA</span></p>"},{"acta":1,"html":"<p class=\"body\">Conforme al artículo Vigésimo Segundo de los Estatutos, la Asamblea eligió dos (2) miembros de la Comisión Disciplinaria. Los miembros elegidos son personas ajenas al Club, que no pertenecen al Órgano de Administración ni tienen calidad de afiliados deportistas.</p>"},{"acta":1,"html":"<table class=\"t-data\"><thead><tr><th>#</th><th>Nombre completo</th><th>C.C.</th><th>Votos a favor</th><th>Votos en contra</th><th>Total votos</th></tr></thead><tbody><tr><td>1</td><td>_________________________________</td><td>___________________</td><td>____</td><td>____</td><td>____</td></tr><tr><td>2</td><td>_________________________________</td><td>___________________</td><td>____</td><td>____</td><td>____</td></tr><tr><td>3</td><td>_________________________________</td><td>___________________</td><td>____</td><td>____</td><td>____</td></tr></tbody></table>"},{"acta":1,"html":"<p class=\"body lead\">Quedaron elegidos como miembros de la Comisión Disciplinaria:</p>"},{"acta":1,"html":"<table class=\"t-data\"><thead><tr><th>Nombre</th><th>C.C.</th></tr></thead><tbody><tr><td>_________________________________</td><td>___________________</td></tr><tr><td>_________________________________</td><td>___________________</td></tr></tbody></table>"},{"acta":1,"html":"<p class=\"body\">Nota: El tercer miembro de la Comisión Disciplinaria será designado por el Presidente mediante Resolución No. 001, conforme al artículo Vigésimo Segundo de los Estatutos.</p>"},{"acta":1,"html":"<p class=\"vote\">Votación: A favor: ____ · En contra: ____ · Abstenciones: ____ · APROBADO</p>"},{"acta":1,"head":true,"html":"<p class=\"punto\"><span class=\"pt-num\">PUNTO 7.</span> <span class=\"pt-name\">PROPOSICIONES Y VARIOS</span></p>"},{"acta":1,"html":"<p class=\"fill\">____________________________________________________________________________</p>"},{"acta":1,"html":"<p class=\"fill\">____________________________________________________________________________</p>"},{"acta":1,"html":"<p class=\"fill\">____________________________________________________________________________</p>"},{"acta":1,"head":true,"html":"<div class=\"sec-head\"><div class=\"sec-rule\"></div><div class=\"sec-roman\">V</div><div class=\"sec-name\">CLAUSURA</div><div class=\"sec-rule\"></div></div>"},{"acta":1,"html":"<p class=\"body\">Agotado el orden del día y no habiendo más proposiciones, el Presidente ad-hoc declaró formalmente constituido el CLUB DEPORTIVO PRIME y levantó la sesión siendo las ___:___ horas del mismo día. La presente Acta es firmada por los fundadores constituyentes, el Presidente ad-hoc y el Secretario(a) ad-hoc.</p>"},{"acta":1,"head":true,"html":"<div class=\"sec-head\"><div class=\"sec-rule\"></div><div class=\"sec-roman\">VI</div><div class=\"sec-name\">FIRMAS DE LOS FUNDADORES CONSTITUYENTES</div><div class=\"sec-rule\"></div></div>"},{"acta":1,"siggrid":true,"items":[{"acta":1,"sig":true,"html":"<div class=\"sig\"><div class=\"sig-space\"></div><div class=\"sig-line\"></div><div class=\"sig-name\">David Sebastián Fonseca Carvajal</div><div class=\"sig-role\">Presidente — Representante Legal</div><div class=\"sig-cc\">C.C. 175.684.517</div></div>"},{"acta":1,"sig":true,"html":"<div class=\"sig\"><div class=\"sig-space\"></div><div class=\"sig-line\"></div><div class=\"sig-name\">José David Caicedo</div><div class=\"sig-role\">Vicepresidente — Fundador</div><div class=\"sig-cc\">C.C. 1.075.678.000</div></div>"},{"acta":1,"sig":true,"html":"<div class=\"sig\"><div class=\"sig-space\"></div><div class=\"sig-line\"></div><div class=\"sig-name\">Marisol Carvajal Medina</div><div class=\"sig-role\">Secretaria — Fundadora</div><div class=\"sig-cc\">C.C. 35.422.570</div></div>"},{"acta":1,"sig":true,"html":"<div class=\"sig\"><div class=\"sig-space\"></div><div class=\"sig-line\"></div><div class=\"sig-name\">_________________________________</div><div class=\"sig-role\">Fundador Constituyente</div><div class=\"sig-cc\">C.C. __________________</div></div>"},{"acta":1,"sig":true,"html":"<div class=\"sig\"><div class=\"sig-space\"></div><div class=\"sig-line\"></div><div class=\"sig-name\">_________________________________</div><div class=\"sig-role\">Fundador Constituyente</div><div class=\"sig-cc\">C.C. __________________</div></div>"},{"acta":1,"sig":true,"html":"<div class=\"sig\"><div class=\"sig-space\"></div><div class=\"sig-line\"></div><div class=\"sig-name\">_________________________________</div><div class=\"sig-role\">Fundador Constituyente</div><div class=\"sig-cc\">C.C. __________________</div></div>"},{"acta":1,"sig":true,"html":"<div class=\"sig\"><div class=\"sig-space\"></div><div class=\"sig-line\"></div><div class=\"sig-name\">_________________________________</div><div class=\"sig-role\">Fundador Constituyente</div><div class=\"sig-cc\">C.C. __________________</div></div>"},{"acta":1,"sig":true,"html":"<div class=\"sig\"><div class=\"sig-space\"></div><div class=\"sig-line\"></div><div class=\"sig-name\">_________________________________</div><div class=\"sig-role\">Fundador Constituyente</div><div class=\"sig-cc\">C.C. __________________</div></div>"},{"acta":1,"sig":true,"html":"<div class=\"sig\"><div class=\"sig-space\"></div><div class=\"sig-line\"></div><div class=\"sig-name\">_________________________________</div><div class=\"sig-role\">Fundador Constituyente</div><div class=\"sig-cc\">C.C. __________________</div></div>"},{"acta":1,"sig":true,"html":"<div class=\"sig\"><div class=\"sig-space\"></div><div class=\"sig-line\"></div><div class=\"sig-name\">_________________________________</div><div class=\"sig-role\">Fundador Constituyente</div><div class=\"sig-cc\">C.C. __________________</div></div>"},{"acta":1,"sig":true,"html":"<div class=\"sig\"><div class=\"sig-space\"></div><div class=\"sig-line\"></div><div class=\"sig-name\">_________________________________</div><div class=\"sig-role\">Fundador Constituyente</div><div class=\"sig-cc\">C.C. __________________</div></div>"},{"acta":1,"sig":true,"html":"<div class=\"sig\"><div class=\"sig-space\"></div><div class=\"sig-line\"></div><div class=\"sig-name\">_________________________________</div><div class=\"sig-role\">Fundador Constituyente</div><div class=\"sig-cc\">C.C. __________________</div></div>"}]},{"acta":1,"head":true,"html":"<div class=\"sec-head\"><div class=\"sec-rule\"></div><div class=\"sec-roman\">VII</div><div class=\"sec-name\">PRESIDENTE Y SECRETARIO AD-HOC</div><div class=\"sec-rule\"></div></div>"},{"acta":1,"siggrid":true,"items":[{"acta":1,"sig":true,"html":"<div class=\"sig\"><div class=\"sig-space\"></div><div class=\"sig-line\"></div><div class=\"sig-name\">_________________________________</div><div class=\"sig-role\">Presidente ad-hoc</div><div class=\"sig-cc\">C.C. __________________</div></div>"},{"acta":1,"sig":true,"html":"<div class=\"sig\"><div class=\"sig-space\"></div><div class=\"sig-line\"></div><div class=\"sig-name\">_________________________________</div><div class=\"sig-role\">Secretario(a) ad-hoc</div><div class=\"sig-cc\">C.C. __________________</div></div>"}]},{"acta":2,"masthead":true,"html":"<div class=\"acta-open\" data-acta=\"2\"><div class=\"mh-emblem\"></div><div class=\"mh-club\">CLUB DEPORTIVO PRIME</div><div class=\"mh-place\">Zipaquirá, Cundinamarca · Colombia</div><div class=\"mh-rule\"><span></span><i></i><span></span></div><div class=\"mh-num\">ACTA No. 002</div><div class=\"mh-sub\">Reunión del Órgano de Administración — Asignación de Cargos y Elección del Tercer Miembro de la Comisión Disciplinaria</div></div>"},{"acta":2,"head":true,"html":"<div class=\"sec-head\"><div class=\"sec-rule\"></div><div class=\"sec-roman\">I</div><div class=\"sec-name\">APERTURA</div><div class=\"sec-rule\"></div></div>"},{"acta":2,"html":"<p class=\"body\">En el municipio de Zipaquirá, siendo las ___:___ horas del día ___ del mes de __________________ de 2026, se reunieron los miembros del Órgano de Administración del CLUB DEPORTIVO PRIME elegidos en la Asamblea de Constitución del mismo día, con el fin de confirmar la asignación de cargos y elegir al tercer miembro de la Comisión Disciplinaria.</p>"},{"acta":2,"html":"<table class=\"t-data\"><thead><tr><th>Nombre</th><th>C.C.</th><th>Firma</th></tr></thead><tbody><tr><td>David Sebastián Fonseca Carvajal</td><td>1.075.684.517</td><td></td></tr><tr><td>José David Caicedo</td><td>1.075.678.000</td><td></td></tr><tr><td>Marisol Carvajal Medina</td><td>35.422.570</td><td></td></tr></tbody></table>"},{"acta":2,"html":"<p class=\"body\">Quórum verificado: presencia de los tres (3) miembros del Órgano de Administración.</p>"},{"acta":2,"head":true,"html":"<div class=\"sec-head\"><div class=\"sec-rule\"></div><div class=\"sec-roman\">II</div><div class=\"sec-name\">ORDEN DEL DÍA</div><div class=\"sec-rule\"></div></div>"},{"acta":2,"html":"<p class=\"oitem\"><span class=\"oi-num\">1.</span> Aprobación del orden del día.</p>"},{"acta":2,"html":"<p class=\"oitem\"><span class=\"oi-num\">2.</span> Confirmación de la asignación de cargos del Órgano de Administración.</p>"},{"acta":2,"html":"<p class=\"oitem\"><span class=\"oi-num\">3.</span> Elección del tercer miembro de la Comisión Disciplinaria.</p>"},{"acta":2,"html":"<p class=\"oitem\"><span class=\"oi-num\">4.</span> Proposiciones y varios.</p>"},{"acta":2,"html":"<p class=\"body\">El orden del día fue aprobado por unanimidad.</p>"},{"acta":2,"head":true,"html":"<div class=\"sec-head\"><div class=\"sec-rule\"></div><div class=\"sec-roman\">III</div><div class=\"sec-name\">DESARROLLO</div><div class=\"sec-rule\"></div></div>"},{"acta":2,"head":true,"html":"<p class=\"punto\"><span class=\"pt-num\">PUNTO 2.</span> <span class=\"pt-name\">CONFIRMACIÓN DE CARGOS</span></p>"},{"acta":2,"html":"<p class=\"body lead\">Conforme al artículo Décimo Sexto de los Estatutos Sociales, los miembros confirmaron la asignación de cargos que operó de pleno derecho desde su elección en la Asamblea de Constitución:</p>"},{"acta":2,"html":"<table class=\"t-data\"><thead><tr><th>Nombre</th><th>C.C.</th><th>Cargo</th></tr></thead><tbody><tr><td>David Sebastián Fonseca Carvajal</td><td>175.684.517</td><td>Presidente — Representante Legal</td></tr><tr><td>José David Caicedo</td><td>1.075.678.000</td><td>Vicepresidente</td></tr><tr><td>Marisol Carvajal Medina</td><td>35.422.570</td><td>Secretaria</td></tr></tbody></table>"},{"acta":2,"head":true,"html":"<p class=\"punto\"><span class=\"pt-num\">PUNTO 3.</span> <span class=\"pt-name\">ELECCIÓN DEL TERCER MIEMBRO DE LA COMISIÓN DISCIPLINARIA</span></p>"},{"acta":2,"html":"<p class=\"body lead\">El Presidente propuso como tercer miembro de la Comisión Disciplinaria a la siguiente persona, ajena al Club y sin calidad de afiliada deportista:</p>"},{"acta":2,"html":"<table class=\"t-data\"><thead><tr><th>Nombre</th><th>C.C.</th></tr></thead><tbody><tr><td>_________________________________</td><td>___________________</td></tr></tbody></table>"},{"acta":2,"html":"<p class=\"body\">La designación fue aprobada por unanimidad. La Resolución No. 001 del Órgano de Administración formalizará este nombramiento.</p>"},{"acta":2,"head":true,"html":"<p class=\"punto\"><span class=\"pt-num\">PUNTO 4.</span> <span class=\"pt-name\">PROPOSICIONES Y VARIOS</span></p>"},{"acta":2,"html":"<p class=\"fill\">____________________________________________________________________________</p>"},{"acta":2,"html":"<p class=\"fill\">____________________________________________________________________________</p>"},{"acta":2,"head":true,"html":"<div class=\"sec-head\"><div class=\"sec-rule\"></div><div class=\"sec-roman\">IV</div><div class=\"sec-name\">CLAUSURA</div><div class=\"sec-rule\"></div></div>"},{"acta":2,"html":"<p class=\"body\">Sin más asuntos que tratar, el Presidente levantó la sesión siendo las ___:___ horas del mismo día.</p>"},{"acta":2,"head":true,"html":"<div class=\"sec-head\"><div class=\"sec-rule\"></div><div class=\"sec-roman\">V</div><div class=\"sec-name\">FIRMAS</div><div class=\"sec-rule\"></div></div>"},{"acta":2,"siggrid":true,"items":[{"acta":2,"sig":true,"html":"<div class=\"sig\"><div class=\"sig-space\"></div><div class=\"sig-line\"></div><div class=\"sig-name\">David Sebastián Fonseca Carvajal</div><div class=\"sig-role\">Presidente</div><div class=\"sig-cc\">C.C. 175.684.517</div></div>"},{"acta":2,"sig":true,"html":"<div class=\"sig\"><div class=\"sig-space\"></div><div class=\"sig-line\"></div><div class=\"sig-name\">José David Caicedo</div><div class=\"sig-role\">Vicepresidente</div><div class=\"sig-cc\">C.C. 1.075.678.000</div></div>"},{"acta":2,"sig":true,"html":"<div class=\"sig\"><div class=\"sig-space\"></div><div class=\"sig-line\"></div><div class=\"sig-name\">Marisol Carvajal Medina</div><div class=\"sig-role\">Secretaria</div><div class=\"sig-cc\">C.C. 35.422.570</div></div>"}]}]</script>
+<script>
+const BLOCKS = JSON.parse(document.getElementById('blocks').textContent);
+const ACTA_LABEL = {1:"Acta de Constitución No. 001", 2:"Acta No. 002"};
+const PAGE_H=1056, CONTENT_H = 1056-84-120;
+
+function el(tag,cls,html){ const e=document.createElement(tag); if(cls)e.className=cls; if(html!=null)e.innerHTML=html; return e; }
+
+// expand blocks into DOM nodes inside #source
+function buildSource(){
+  const src=document.getElementById('source'); src.innerHTML='';
+  const nodes=[];
+  for(const b of BLOCKS){
+    if(b.siggrid){
+      const grid=el('div','sig-grid'); grid.dataset.acta=b.acta;
+      // odd count -> last item centered by wrapping; keep simple 2-col
+      b.items.forEach(it=>{ const d=document.createElement('div'); d.innerHTML=it.html; grid.appendChild(d.firstElementChild); });
+      src.appendChild(grid); nodes.push(grid);
+    } else {
+      const wrap=document.createElement('div'); wrap.innerHTML=b.html;
+      const node=wrap.firstElementChild; node.dataset.acta=b.acta;
+      if(b.masthead) node.dataset.masthead='1';
+      if(b.head) node.dataset.head='1';
+      src.appendChild(node); nodes.push(node);
+    }
+  }
+  return nodes;
+}
+
+function makePage(pagesEl, actaId, isMasthead){
+  const p=el('div','page'+(isMasthead?' has-masthead':''));
+  p.dataset.acta=actaId;
+  if(!isMasthead){
+    p.appendChild(el('div','page-header','<span>Club Deportivo Prime</span><span class="hr-right">'+ACTA_LABEL[actaId]+'</span>'));
+  }
+  const content=el('div','page-content'); p.appendChild(content);
+  p.appendChild(el('div','page-footer','<span class="pageno"></span>'));
+  pagesEl.appendChild(p);
+  return content;
+}
+
+// Trim trailing rows/items off a node until it fits the current page.
+// Returns a continuation node (same shell, repeated thead for tables) or null.
+function splitToFit(node, content){
+  const isTable = node.tagName==='TABLE';
+  const container = isTable ? node.querySelector('tbody') : node;
+  if(!container) return null;
+  const removed=[];
+  while(content.offsetHeight>CONTENT_H && container.children.length>1){
+    const last=container.children[container.children.length-1];
+    removed.unshift(last);
+    container.removeChild(last);
+  }
+  if(removed.length===0) return null;
+  let cont;
+  if(isTable){
+    cont=node.cloneNode(false);
+    const thead=node.querySelector('thead'); if(thead) cont.appendChild(thead.cloneNode(true));
+    const tb=document.createElement('tbody'); removed.forEach(r=>tb.appendChild(r)); cont.appendChild(tb);
+  } else {
+    cont=node.cloneNode(false); // sig-grid shell (keeps classes)
+    removed.forEach(r=>cont.appendChild(r));
+  }
+  return cont;
+}
+
+function paginate(){
+  const pagesEl=document.getElementById('pages'); pagesEl.innerHTML='';
+  const nodes=buildSource();
+  let curActa=1, content=null;
+  const queue=nodes.slice();
+
+  while(queue.length){
+    const node=queue.shift();
+    const actaId=parseInt(node.dataset.acta)||curActa;
+    const isMast=node.dataset.masthead==='1';
+    const forceNew=node.dataset.forcenew==='1';
+
+    if(content===null || isMast || actaId!==curActa || forceNew){
+      curActa=actaId;
+      content=makePage(pagesEl, actaId, isMast);
+    }
+
+    const clone=node.cloneNode(true);
+    content.appendChild(clone);
+
+    if(content.offsetHeight<=CONTENT_H){
+      // orphan-head guard: don't strand a heading at the very bottom
+      if(node.dataset.head==='1' && content.offsetHeight>CONTENT_H-130){
+        content.removeChild(clone);
+        content=makePage(pagesEl, curActa, false);
+        content.appendChild(clone);
+      }
+      continue;
+    }
+
+    // overflow
+    const splittable = clone.tagName==='TABLE' || clone.classList.contains('sig-grid');
+    if(splittable){
+      let cont=splitToFit(clone, content);
+      if(content.offsetHeight>CONTENT_H){
+        // page already too full above to fit even one row -> move whole node to a fresh page
+        content.removeChild(clone);
+        content=makePage(pagesEl, curActa, false);
+        content.appendChild(clone);
+        cont=splitToFit(clone, content);
+      }
+      if(cont){ cont.dataset.acta=curActa; cont.dataset.forcenew='1'; queue.unshift(cont); }
+    } else {
+      content.removeChild(clone);
+      content=makePage(pagesEl, curActa, false);
+      content.appendChild(clone);
+    }
+  }
+
+  // footers
+  const all=[...pagesEl.querySelectorAll('.page')]; const total=all.length;
+  all.forEach((pg,idx)=>{ const n=pg.querySelector('.pageno'); if(n) n.textContent='Club Deportivo Prime  ·  Página '+(idx+1)+' de '+total; });
+}
+
+function paginateThenPrint(){ paginate(); setTimeout(()=>window.print(), 600); }
+if(document.fonts&&document.fonts.ready){ document.fonts.ready.then(()=>setTimeout(paginateThenPrint,80)); }
+else window.addEventListener('load',()=>setTimeout(paginateThenPrint,250));
+</script>
+</body>
+</html>

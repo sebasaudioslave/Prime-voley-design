@@ -1,0 +1,148 @@
+/* ============================================================
+   PRIME VOLEY CLUB — Core Colors & Type
+   Competitive volleyball club · Zipaquirá, Colombia
+   "Black with a gold edge and purple precision."
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  /* ---------- BRAND COLORS (strict hierarchy) ---------- */
+  --carbon:        #15161C;  /* 84% — Carbon Black: backgrounds, base, dominant territory */
+  --gold:          #C9A84C;  /*  8% — Royal Gold: authority — borders, stripes, key details */
+  --purple:        #4C3B9A;  /*  5% — Technical Purple: precision — thin lines, pinstripes */
+  --white:         #F2F2F2;  /*  3% — Functional White: readability only — text, data */
+
+  /* ---------- DERIVED / TONAL STEPS ---------- */
+  /* Carbon ramp — surfaces built up from the base, never lighter than needed */
+  --carbon-900:    #0E0F13;  /* deepest — page void / behind cards */
+  --carbon-800:    #15161C;  /* base background */
+  --carbon-700:    #1C1E26;  /* raised surface / card */
+  --carbon-600:    #242631;  /* elevated surface / hover fill */
+  --carbon-500:    #2E3140;  /* hairline borders on dark, dividers */
+  --carbon-400:    #3A3D4E;  /* strong divider / disabled stroke */
+
+  /* Gold ramp */
+  --gold-bright:   #DCC067;  /* hover / active highlight */
+  --gold:          #C9A84C;  /* base authority gold */
+  --gold-deep:     #9E8338;  /* pressed / shadow edge of gold */
+
+  /* Purple ramp */
+  --purple-bright: #6553C4;  /* active pinstripe / focus glow */
+  --purple:        #4C3B9A;  /* base technical purple */
+  --purple-deep:   #2F2563;  /* shield fill / deep precision line */
+
+  /* White / text ramp */
+  --white:         #F2F2F2;  /* primary text */
+  --white-dim:     rgba(242,242,242,0.66); /* secondary text */
+  --white-faint:   rgba(242,242,242,0.42); /* tertiary / captions */
+  --white-ghost:   rgba(242,242,242,0.14); /* hairlines on dark */
+
+  /* ---------- SEMANTIC TOKENS ---------- */
+  --bg:            var(--carbon-800);
+  --bg-void:       var(--carbon-900);
+  --surface:       var(--carbon-700);
+  --surface-raised:var(--carbon-600);
+  --border:        var(--carbon-500);
+  --border-strong: var(--gold);
+  --border-hair:   var(--white-ghost);
+  --accent:        var(--gold);
+  --accent-2:      var(--purple);
+
+  --fg1:           var(--white);          /* primary text/data */
+  --fg2:           var(--white-dim);      /* supporting text */
+  --fg3:           var(--white-faint);    /* captions / fine print */
+
+  /* Status (kept disciplined, derived from brand) */
+  --positive:      #5BAE7A;  /* win / success — muted green, reads on carbon */
+  --negative:      #5A5C68;  /* loss / inactive — muted slate (NO red on carbon) */
+  --warning:       var(--gold);
+
+  /* ---------- TYPE FAMILIES ---------- */
+  --font-display:  'Barlow Condensed', 'Oswald', 'Arial Narrow', sans-serif;
+  --font-body:     'Space Grotesk', 'Inter', system-ui, sans-serif;
+
+  /* ---------- TYPE SCALE (display is condensed + tight) ---------- */
+  --display-1:     900 92px/0.92 var(--font-display);   /* hero / scoreboard numbers */
+  --display-2:     900 64px/0.94 var(--font-display);
+  --h1:            800 48px/0.98 var(--font-display);
+  --h2:            800 36px/1.0  var(--font-display);
+  --h3:            700 26px/1.05 var(--font-display);
+  --eyebrow:       700 13px/1.0  var(--font-body);      /* tracked label */
+  --body-lg:       400 18px/1.55 var(--font-body);
+  --body:          400 16px/1.55 var(--font-body);
+  --body-sm:       400 14px/1.5  var(--font-body);
+  --caption:       500 12px/1.4  var(--font-body);
+  --data:          600 15px/1.2  var(--font-body);      /* stats, tabular */
+
+  /* ---------- TRACKING ---------- */
+  --track-display: 0.01em;
+  --track-eyebrow: 0.22em;   /* heavy tracking on small caps labels */
+  --track-button:  0.08em;
+
+  /* ---------- RADII (athletic = sharp; restrained rounding) ---------- */
+  --r-none:        0px;
+  --r-sm:          2px;
+  --r-md:          4px;
+  --r-lg:          8px;
+  --r-pill:        999px;
+
+  /* ---------- SPACING (4px base grid) ---------- */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
+  --s-5: 20px; --s-6: 24px; --s-8: 32px; --s-10: 40px;
+  --s-12: 48px; --s-16: 64px; --s-20: 80px; --s-24: 96px;
+
+  /* ---------- ELEVATION ---------- */
+  --shadow-sm:  0 1px 2px rgba(0,0,0,0.4);
+  --shadow-md:  0 6px 18px rgba(0,0,0,0.45);
+  --shadow-lg:  0 18px 48px rgba(0,0,0,0.55);
+  --glow-gold:  0 0 0 1px rgba(201,168,76,0.5), 0 4px 18px rgba(201,168,76,0.18);
+  --glow-focus: 0 0 0 2px var(--carbon-800), 0 0 0 4px var(--purple-bright);
+
+  /* ---------- MOTION ---------- */
+  --ease-out:   cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */
+  --ease-sharp: cubic-bezier(0.4, 0, 0.2, 1); /* @kind other */
+  --dur-fast:   120ms; /* @kind other */
+  --dur:        200ms; /* @kind other */
+  --dur-slow:   360ms; /* @kind other */
+
+  /* ---------- CONTROL SHAPES (VNL-aligned product UI) ----------
+     Tabs / buttons / dropdowns are clean rounded rectangles (NOT pills,
+     NOT skewed). Active state = accent fill; secondary = 1.5px outline.
+     Dropdowns carry a caret; sub-navigation uses an underline indicator. */
+  --r-control:  7px;   /* tabs, dropdowns, status tags */
+  --r-button:   8px;   /* buttons */
+  --ctrl-border: 1.5px;
+
+  /* ---------- SIGNATURE GRADIENTS / TEXTURES ---------- */
+  /* Thin purple pinstripe over carbon — the core brand texture */
+  --pinstripe: repeating-linear-gradient(
+    90deg,
+    transparent 0, transparent 13px,
+    rgba(76,59,154,0.5) 13px, rgba(76,59,154,0.5) 14px
+  ); /* @kind other */
+  /* Gold authority stripe trio (adidas-energy) */
+  --gold-stripes: repeating-linear-gradient(
+    90deg,
+    var(--gold) 0, var(--gold) 4px,
+    transparent 4px, transparent 9px
+  );
+}
+
+/* ============================================================
+   SEMANTIC ELEMENT DEFAULTS
+   ============================================================ */
+.ds-display-1 { font: var(--display-1); letter-spacing: var(--track-display); text-transform: uppercase; color: var(--fg1); }
+.ds-display-2 { font: var(--display-2); letter-spacing: var(--track-display); text-transform: uppercase; color: var(--fg1); }
+.ds-h1 { font: var(--h1); letter-spacing: var(--track-display); text-transform: uppercase; color: var(--fg1); }
+.ds-h2 { font: var(--h2); letter-spacing: var(--track-display); text-transform: uppercase; color: var(--fg1); }
+.ds-h3 { font: var(--h3); letter-spacing: var(--track-display); text-transform: uppercase; color: var(--fg1); }
+.ds-eyebrow {
+  font: var(--eyebrow); letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase; color: var(--gold);
+}
+.ds-body-lg { font: var(--body-lg); color: var(--fg2); }
+.ds-body    { font: var(--body);    color: var(--fg2); }
+.ds-body-sm { font: var(--body-sm); color: var(--fg2); }
+.ds-caption { font: var(--caption); color: var(--fg3); letter-spacing: 0.02em; }
+.ds-data    { font: var(--data); color: var(--fg1); font-variant-numeric: tabular-nums; }

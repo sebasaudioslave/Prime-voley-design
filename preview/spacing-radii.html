@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Brand" name="Corner radii" subtitle="Sharp / athletic, 0–8px + pill" viewport="700x165" --><html><head><meta charset="UTF-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+ html,body{margin:0}
+ body{background:var(--carbon-900);font-family:var(--font-body);padding:20px;display:flex;gap:14px;align-items:flex-end}
+ .lab{position:absolute;top:18px;left:20px;font:700 11px/1 var(--font-body);letter-spacing:0.22em;text-transform:uppercase;color:var(--gold)}
+ .b{width:84px;height:74px;background:var(--carbon-700);border:1px solid var(--carbon-500);display:flex;align-items:flex-end;justify-content:center;padding-bottom:7px;margin-top:26px}
+ .b.g{border-color:var(--gold)}
+ .b b{font:600 11px var(--font-body);color:#F2F2F2}
+ .b span{font:10px var(--font-body);color:rgba(242,242,242,0.45)}
+ .cap{display:flex;flex-direction:column;align-items:center;gap:3px}
+</style></head>
+<body>
+ <span class="lab">Corner radii — sharp / athletic</span>
+ <div class="cap"><div class="b" style="border-radius:0"></div><b>none</b><span>0px</span></div>
+ <div class="cap"><div class="b" style="border-radius:2px"></div><b>sm</b><span>2px</span></div>
+ <div class="cap"><div class="b" style="border-radius:4px"></div><b>md</b><span>4px</span></div>
+ <div class="cap"><div class="b g" style="border-radius:8px"></div><b>lg</b><span>8px</span></div>
+ <div class="cap"><div class="b" style="border-radius:999px;width:120px"></div><b>pill</b><span>chips only</span></div>
+</body></html>
